@@ -1,2 +1,141 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="container">
+    <h1>Welcome to Gift Hub 🎉</h1>
+    <h1>The Ultimate Event and Wishlist Platform 🧞</h1>
+    <p>Create. Add. Share. Gift Time!</p>
+      <button type="button" class="btn btn-danger" style="--bs-btn-padding-y: 15px;"><%= link_to "Create Your Event", "" %>
+  </div>
+  </div>
+
+  <div class="section-title-one">
+   <div class="container w-50">
+                  <h2 class="fw-bold">Our Key Features</h2>
+                  <p>
+                     Create your event and invite your friends and family to join! Make sure they bring the right gift, with your wishlist created by you. They pick and claim the gift they want to get you. Simple.
+                  </p>
+    </div>
+</div>
+
+<div class="single-accordion">
+   <div class="accordion-style-two">
+      <div class="accordion" id="accordionTwo">
+         <div class="card">
+            <div class="card-header" id="headingSix">
+               <a href="#collapseSix" data-bs-toggle="collapse" role="button" aria-expanded="true">Create Event</a>
+            </div>
+            <div id="collapseSix" class="collapse show" data-bs-parent="#accordionTwo">
+               <div class="card-body">
+                  <p class="text">
+                     Create your event, for literraly anything! Build it our within minutes.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <!-- card -->
+         <div class="card">
+            <div class="card-header" id="headingseven">
+               <a class="collapsed" href="#collapseseven" data-bs-toggle="collapse" role="button"
+                  aria-expanded="false">Wishlist Time</a>
+            </div>
+            <div id="collapseseven" class="collapse" data-bs-parent="#accordionTwo">
+               <div class="card-body">
+                  <p class="text">
+                     Make sure you have the things you want, complete with the wishlist with the items that matter. And set the links for where to buy them.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <!-- card -->
+         <div class="card">
+            <div class="card-header" id="headingEight">
+               <a class="collapsed" href="#collapseEight" data-bs-toggle="collapse" role="button"
+                  aria-expanded="false">Invite everyone</a>
+            </div>
+            <div id="collapseEight" class="collapse" data-bs-parent="#accordionTwo">
+               <div class="card-body">
+                  <p class="text">
+                     Send the event to your friends, and watch them join! Simple and easy to track.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <!-- card -->
+         <div class="card">
+            <div class="card-header" id="headingNine">
+               <a class="collapsed" href="#collapseNine" data-bs-toggle="collapse" role="button"
+                  aria-expanded="false">See who loves you..</a>
+            </div>
+            <div id="collapseNine" class="collapse" data-bs-parent="#accordionTwo">
+               <div class="card-body">
+                  <p class="text">
+                     See who has committed to get you something that you really want and everyone else who hates you.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <!-- card -->
+         <div class="card">
+            <div class="card-header" id="headingTen">
+               <a class="collapsed" href="#collapseTen" data-bs-toggle="collapse" role="button"
+                  aria-expanded="false">Repeat</a>
+            </div>
+            <div id="collapseTen" class="collapse" data-bs-parent="#accordionTwo">
+               <div class="card-body">
+                  <p class="text">
+                    You are now and expert, keep doing it!
+                  </p>
+               </div>
+            </div>
+         </div>
+         <!-- card -->
+      </div>
+   </div>
+   <!-- card -->
+</div>
+<!-- accordion style two -->
+
+
+</div>
+<div class="container" id="event-card">
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1464349153735-7db50ed83c84?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1264&q=80)">
+      Birthday
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)">
+      Wedding
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1627666433456-5d09003892d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)">
+      Babyshower
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80)">
+      Covid
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1516296912430-e4ed157f0316?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)">
+      Breakup
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)">
+      No Reason!
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<%# <div style="text-align: center; z-index: 2; position: relative;">
+  <div class="banner">
+   <h1 class="title text-xl text-gray-600">Welcome to Gift Hub 🎉</h1>
+   <h2>The Ultimate Event and Wishlist Platform 🧞</h2>
+    <button type="button" class="btn btn-danger"><%= link_to "Create Your Event", "" %>
+  <%# </div>
+  <div class="content">
+    <p>Create. Add. Share. Gift Time!</p>
+  </div>
+</div> %>
