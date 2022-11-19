@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     if params[:query].present?
       @events = Event.where(name: params[:query])
     else
-      @events = Events.all
+      @events = Event.all
     end
   end
 
@@ -24,6 +24,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_path, status: :see_other
   end
 
   private
