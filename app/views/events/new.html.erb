@@ -1,14 +1,9 @@
-<div class="d-flex justify-content-center my-5">
+<div class="container d-flex justify-content-center my-5">
   <div class="col-12 col-lg-3">
     <div class="card text-center align-self-center border-0" style="background-color:#ddcecde8">
 <div class="Event Form">
   <h3>Create your Event:</h3>
-  <%= simple_form_for @event do |form| %>
-    <%= form.input :title, label: "Event Title" %>
-    <%= form.input :category, label: "Category", collection: Event::CATEGORIES %>
-    <%= form.input :eventdate, label: "Event Date", start_year: Date.today.year %>
-    <%= form.button :submit, class: "buttons" %>
-  <% end %>
+  <%= render "shared/form", event: @event %>
 </div>
 </div>
 </div>
