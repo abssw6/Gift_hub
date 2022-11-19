@@ -1,10 +1,11 @@
+require 'date'
+
 class EventsController < ApplicationController
   def index
-    if params[:query].present?
-      @events = Event.where(name: params[:query])
-    else
-      @events = Event.all
-    end
+    # @events = current_user.events.where("eventdate > '#{DateTime.now()}'").sort_by { |event| event.eventdate }
+    @events = Event.where("eventdate > '#{DateTime.now()}'").sort_by { |event| event.eventdate }
+    # (eventdate > DateTime.now())
+    # @events.each do |event|
   end
 
   def new
