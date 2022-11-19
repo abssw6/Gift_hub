@@ -16,7 +16,7 @@
 </div>
 
 <div class="container my-4">
-  <%= month_calendar do |date| %>
+  <%= month_calendar(events: @events) do |date| %>
     <%= date.day %>
   <% end %>
 </div>
