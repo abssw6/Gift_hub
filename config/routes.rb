@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'gifts/show'
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :events do
-    resources :whislists, only: :show do
+    resources :wishlists, only: :show do
       resources :gifts, only: :show
     end
   end
