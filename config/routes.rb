@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'gifts/show'
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
