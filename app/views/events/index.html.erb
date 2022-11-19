@@ -1,22 +1,33 @@
-<div class="row">
-<% @events.each do |event| %>
-  <div class="col-12 col-lg-3">
-      <div class="card text-center text-white">
-        <div class="card photo card-img-top">
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to event.title, event_path(event) %></h5>
-
-            <p class="card-text"><%= event.category %></p>
-            <button type="button" class="buttons"><%= link_to "View Event Details", new_event_path(event) %></button>
-          </div>
-        </div>
-      </div>
-  </div>
-<% end %>
-</div>
-
 <div class="container my-4">
   <%= month_calendar(events: @events) do |date| %>
     <%= date.day %>
   <% end %>
+</div>
+
+<div class="container">
+  <div class="calendar dark">
+    <div class="calendar_header">
+      <h1 class ="header_title">Upcoming Events</h1>
+      <p class="header_copy">See Events and Wishlists</p>
+    </div>
+    <div class="calendar_plan">
+      <div class="cl_plan">
+        <div class="cl_title"><%= @events.first.eventdate.strftime('%A, %d-%m-%Y') %></div>
+        <div class="cl_copy"><%= @events.first.title %></div>
+        <div class="cl_add">
+          <i class="fas fa-plus"></i>
+        </div>
+      </div>
+    </div>
+    <div class="calendar_events">
+      <p class="ce_title">Upcoming Events</p>
+      <% @events[1..-1].each do |event| %>
+        <div class="event_item">
+          <div class="ei_Dot dot_active"></div>
+          <div class="ei_Title"><%= event.eventdate.strftime('%A, %d-%m-%Y') %></div>
+          <div class="ei_Copy"><%= event.title %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
