@@ -8,7 +8,7 @@
 require 'faker'
 
 User.destroy_all
-Event.destory_all
+Event.destroy_all
 
 puts "Creating 10 users and Creating 2 events per user"
 10.times do
@@ -28,17 +28,3 @@ puts "Creating 10 users and Creating 2 events per user"
       end
 end
 puts "Done"
-
-
-
-# puts "Creating 50 drinks"
-# 10.times do
-#   file = URI.open(Faker::LoremFlickr.image(search_terms: ['sodacan']))
-#   i = 1
-#   object = Drink.new(
-#     name: Faker::Kpop.iii_groups,
-#     description: Faker::Lorem.sentences,
-#     stock_level: rand(50..100),
-#     price: rand(2..10),
-#     user: User.first
-#   )
