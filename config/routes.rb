@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :events do
-    resources :whislists, only: :show do
+    resources :wishlists, only: :show do
       resources :gifts, only: :show
     end
   end
