@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-User.destroy_all
 Event.destroy_all
+User.destroy_all
 CATEGORIES= ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
 
 puts "Creating 10 users and Creating 2 events per user"
