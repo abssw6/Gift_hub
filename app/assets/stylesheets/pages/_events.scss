@@ -5,6 +5,11 @@
 $off_white:#fafafa;
 $light_grey:#A39D9E;
 
+#upcoming {
+  margin-right: 200px;
+  margin-top: 20px;
+}
+
 *{
   box-sizing:border-box;
 }
@@ -51,9 +56,7 @@ body{
   padding:30px;
   color:#fff;
 }
-.cl_title{
 
-}
 .cl_copy{
   font-size:20px;
   margin: 20px 0;
