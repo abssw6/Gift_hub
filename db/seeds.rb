@@ -9,19 +9,20 @@ require 'faker'
 
 User.destroy_all
 Event.destroy_all
+CATEGORIES= ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
 
 puts "Creating 10 users and Creating 2 events per user"
 10.times do
-  user = User.create!(
+  user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: "123456")
 
       2.times do
-          event = Event.create!(
+          event = Event.create(
             eventdate: Faker::Date.in_date_period,
-            category: Faker::Hobby.activity,
+            category: CATEGORIES.sample,
             title: Faker::Kpop.iii_groups,
             user: user
           )
