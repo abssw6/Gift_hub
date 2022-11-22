@@ -30,3 +30,14 @@ puts "Creating 10 users and Creating 2 events per user"
   end
 end
 puts "Done"
+
+puts "Creating 30 Gifts"
+30.times do
+  gift = Gift.create(
+    name: Faker::Commerce.brand,
+    gift_type: Faker::Commerce.department,
+    rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
+    description: Faker::Commerce.product_name,
+    link: Faker::Internet.url
+  )
+end
