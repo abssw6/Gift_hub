@@ -10,6 +10,9 @@
       <h1 class ="header_title">Upcoming Events</h1>
       <p class="header_copy">See Events and Wishlists</p>
     </div>
+    <% if @events.empty? %>
+    <div>No Events</div>
+    <% else  %>
     <div class="calendar_plan">
       <div class="cl_plan">
         <div class="cl_title"><%= @events.first.eventdate.strftime('%A, %d-%m-%Y') %></div>
@@ -29,5 +32,6 @@
         </div>
       <% end %>
     </div>
+    <% end %>
   </div>
 </div>
