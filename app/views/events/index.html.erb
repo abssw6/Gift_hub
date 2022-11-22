@@ -1,10 +1,11 @@
-<div class="container my-4">
-  <%= month_calendar do |date| %>
-    <%= date.day %>
-  <% end %>
-</div>
+<div class="main-container">
+  <div class="container my-4" id="calendar">
+    <%= month_calendar do |date| %>
+      <%= date.day %>
+    <% end %>
+  </div>
 
-<div class="container">
+<div class="container" id="upcoming">
   <div class="calendar dark">
     <div class="calendar_header">
       <h1 class ="header_title">Upcoming Events</h1>
@@ -21,16 +22,27 @@
           <i class="fas fa-plus"></i>
         </div>
       </div>
-    </div>
-    <div class="calendar_events">
-      <p class="ce_title">Upcoming Events</p>
-      <% @events[1..-1].each do |event| %>
-        <div class="event_item">
-          <div class="ei_Dot dot_active"></div>
-          <div class="ei_Title"><%= event.eventdate.strftime('%A, %d-%m-%Y') %></div>
-          <div class="ei_Copy"><%= event.title %></div>
+      <div class="calendar_plan">
+        <div class="cl_plan">
+          <div class="cl_title"><%= @events.first.eventdate.strftime('%A, %d-%m-%Y') %></div>
+          <div class="cl_copy"><%= @events.first.title %></div>
+          <div class="cl_add">
+            <i class="fas fa-plus"></i>
+          </div>
         </div>
-      <% end %>
+      </div>
+      <div class="calendar_events">
+        <p class="ce_title">Upcoming Events</p>
+        <% @events[1..-1].each do |event| %>
+          <div class="event_item">
+            <div class="ei_Dot dot_active"></div>
+            <div class="ei_Title"><%= event.eventdate.strftime('%A, %d-%m-%Y') %></div>
+            <div class="ei_Copy"><%= event.title %> <%= event.category %></div>
+            <%= link_to 'Show', event %>
+            <%= link_to 'Edit', edit_event_path(event) %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <% end %>
   </div>
