@@ -4,6 +4,11 @@ class EventsController < ApplicationController
   def index
     # @events = current_user.events.where("eventdate > '#{DateTime.now()}'").sort_by { |event| event.eventdate }
     @events = Event.where("eventdate > '#{DateTime.now()}'").sort_by { |event| event.eventdate }
+    if params[:query].present?
+      @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @events = Event.all
+    end
     # (eventdate > DateTime.now())
     # @events.each do |event|
   end
