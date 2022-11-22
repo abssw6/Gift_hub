@@ -1,6 +1,10 @@
-<h1>Gifts#show</h1>
-<p>Find me in app/views/gifts/show.html.erb</p>
-
-<%= month_calendar do |date| %>
-  <%= date.day %>
-<% end %>
+<div class="d-flex justify-content-center my-5">
+  <div class="col-12 col-lg-3">
+    <div class="card text-center align-self-center border-0">
+      <p>Name: <%= @gift.name %></p>
+      <p>Description: <%= @gift.description %></p>
+      <p>Price: £<%= @gift.rrp %></p>
+      <p>Buy it here: <%= @gift.link %></p>
+      <button type="button" class="buttons">
+    </div>
+  </div>
