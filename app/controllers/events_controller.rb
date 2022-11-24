@@ -2,15 +2,17 @@ require 'date'
 
 class EventsController < ApplicationController
   def index
-    # @events = current_user.events.where("eventdate > '#{DateTime.now()}'").sort_by { |event| event.eventdate }
-    @events = Event.where("eventdate > '#{DateTime.now()}'").sort_by { |event| event.eventdate }
+    @events = Event.where("event_date > '#{DateTime.now()}'").sort_by { |event| event.event_date }
     if params[:query].present?
       @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
     else
       @events = Event.all
     end
-    # (eventdate > DateTime.now())
-    # @events.each do |event|
+  end
+
+  def calendar
+    # event_date = params.fetch(:event_date, Date.today).to_date
+    @events = Event.where(starts_at: event_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def new
@@ -55,6 +57,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:eventdate, :category, :title)
+    params.require(:event).permit(:event_date, :category, :title)
   end
 end
