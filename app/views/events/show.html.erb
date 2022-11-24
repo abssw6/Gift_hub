@@ -23,7 +23,7 @@
         <h5 class="card-title">Title: <%= @event.title %></h5>
         <p class="card-text">Category: <%= @event.category %></p>
         <p class="card-text">Organiser: <%= @event.user.first_name %></p>
-        <p class="card-text">Date: <%= @event.eventdate %></p>
+        <p class="card-text">Date: <%= @event.event_date %></p>
         <button type="button"><%= link_to "Back to Events", "/events" %>
         <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
