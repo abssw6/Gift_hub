@@ -22,7 +22,7 @@ puts "Creating 10 users and Creating 2 events per user"
 
   2.times do
     event = Event.create(
-      eventdate: Faker::Date.in_date_period,
+      event_date: Faker::Date.in_date_period,
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
