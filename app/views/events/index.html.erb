@@ -26,7 +26,7 @@
       <div class="calendar_plan text-center">
         <div class="cl_plan">
           <p>Your Next Event</p>
-          <div class="cl_title"><%= @events.first.eventdate.strftime('%A, %d-%m-%Y') %></div>
+          <div class="cl_title"><%= @events.first.event_date.strftime('%A, %d-%m-%Y') %></div>
           <div class="cl_copy"><%= @events.first.title %></div>
           <div class="cl_add">
             <%= link_to event_path(@events.first) do %>
