@@ -1,6 +1,3 @@
-
-
-
 <div class="d-flex justify-content-center my-5">
   <div class="col-12 col-lg-6">
     <div class="card text-center">
@@ -20,6 +17,7 @@
         <p class="card-text">Organiser: <%= @event.user.first_name %></p>
         <p class="card-text">Date: <%= @event.eventdate %></p>
         <button type="button"><%= link_to "Back to Events", "/events" %>
+        <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
     </div>
     </div>
