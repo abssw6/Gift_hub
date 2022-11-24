@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_211516) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_201752) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_211516) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "gifts_wishlists", force: :cascade do |t|
+    t.integer "gift_id"
+    t.integer "wishlist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -51,14 +58,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_211516) do
   create_table "wishlists", force: :cascade do |t|
     t.string "name"
     t.bigint "event_id", null: false
-    t.bigint "gift_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_wishlists_on_event_id"
-    t.index ["gift_id"], name: "index_wishlists_on_gift_id"
   end
 
   add_foreign_key "events", "users"
   add_foreign_key "wishlists", "events"
-  add_foreign_key "wishlists", "gifts"
 end

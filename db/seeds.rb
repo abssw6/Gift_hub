@@ -9,9 +9,11 @@ require 'faker'
 
 Event.destroy_all
 User.destroy_all
+Gift.destroy_all
+# Wishlist.destroy_all
 CATEGORIES = ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
 
-puts "Creating 10 users and Creating 2 events per user"
+puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift and 30 gifts"
 10.times do
   user = User.create(
     first_name: Faker::Name.first_name,
@@ -27,17 +29,33 @@ puts "Creating 10 users and Creating 2 events per user"
       title: Faker::Kpop.iii_groups,
       user: user
     )
+    gifts = 5.times do
+      Gift.create(
+        name: Faker::Commerce.brand,
+        gift_type: Faker::Commerce.department,
+        rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
+        description: Faker::Commerce.product_name,
+        link: Faker::Internet.url
+      )
+    end
+      2.times do
+        Wishlist.create(
+          name: "Hello World",
+          event: event,
+          gifts: gifts
+        )
+
+    end
   end
 end
 puts "Done"
 
-puts "Creating 30 Gifts"
-30.times do
-  gift = Gift.create(
-    name: Faker::Commerce.brand,
-    gift_type: Faker::Commerce.department,
-    rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
-    description: Faker::Commerce.product_name,
-    link: Faker::Internet.url
-  )
-end
+# puts "Creating 30 Gifts"
+# 30.times do
+#   gift = Gift.create(
+#     name: Faker::Commerce.brand,
+#     gift_type: Faker::Commerce.department,
+#     rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
+#     description: Faker::Commerce.product_name,
+#     link: Faker::Internet.url
+#   )
