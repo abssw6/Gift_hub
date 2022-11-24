@@ -5,7 +5,7 @@
       <%# <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fit %>
       <p>Category: <%= @event.category %></p>
       <p>Organiser: <%= @event.user.first_name %></p>
-      <p>Date: <%= @event.eventdate %></p>
+      <p>Date: <%= @event.event_date %></p>
       <button type="button"><%= link_to "Back to Events", "/events" %>
     </div>
   </div>

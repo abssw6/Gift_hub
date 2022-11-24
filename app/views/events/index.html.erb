@@ -1,6 +1,12 @@
 <div class="container my-4">
-  <%= month_calendar(events: @events) do |date| %>
+  <%= month_calendar(attribute: :event_date) do |date| %>
     <%= date.day %>
+
+    <% @events.each do |event| %>
+      <div>
+        <%= event.title if event.event_date == date %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
@@ -12,7 +18,7 @@
     </div>
     <div class="calendar_plan">
       <div class="cl_plan">
-        <div class="cl_title"><%= @events.first.eventdate.strftime('%A, %d-%m-%Y') %></div>
+        <div class="cl_title"><%= @events.first.event_date.strftime('%A, %d-%m-%Y') %></div>
         <div class="cl_copy"><%= @events.first.title %></div>
         <div class="cl_add">
           <i class="fas fa-plus"></i>
@@ -24,7 +30,7 @@
       <% @events[1..-1].each do |event| %>
         <div class="event_item">
           <div class="ei_Dot dot_active"></div>
-          <div class="ei_Title"><%= event.eventdate.strftime('%A, %d-%m-%Y') %></div>
+          <div class="ei_Title"><%= event.event_date.strftime('%A, %d-%m-%Y') %></div>
           <div class="ei_Copy"><%= event.title %></div>
         </div>
       <% end %>
