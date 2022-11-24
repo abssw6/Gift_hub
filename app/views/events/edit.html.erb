@@ -1,0 +1,13 @@
+<div class="container d-flex justify-content-center my-5">
+  <div class="col-12 col-lg-6">
+    <div class="card text-center align-self-center border-0" style="">
+      <div class="Event Form">
+          <h1>Edit Event</h1>
+
+          <%= render "shared/form", event: @event %>
+          <%= link_to 'Show', @event %> |
+          <%= link_to 'Back', @events_path %>
+      </div>
+    </div>
+  </div>
+</div>

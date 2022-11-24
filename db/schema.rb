@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_194820) do
 
   create_table "gifts", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "gift_type"
     t.float "rrp"
     t.text "description"
     t.text "link"
