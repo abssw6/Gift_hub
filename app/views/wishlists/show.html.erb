@@ -11,6 +11,11 @@
           </li>
         </ul>
       </div>
+
+      <%= simple_form_for ([@event, @wishlist, GiftsWishlist.new]) do |f|%>
+        <%= f.input :gift_id, collection: Gift.all %>
+        <%= f.submit %>
+      <% end %>
       <div class="card-body">
         <h5 class="card-title">Title: <%= @wishlist.name %></h5>
         <div class="card-text">
