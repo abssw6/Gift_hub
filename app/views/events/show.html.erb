@@ -11,7 +11,7 @@
           </li>
         </ul>
       </div>
-      
+
       <div class="col-md-9">
         <div class="tab-content">
           <div class="tab-pane card-body active" id="event-details" role="tabpanel">
@@ -19,6 +19,12 @@
             <p class="card-text">Category: <%= @event.category %></p>
             <p class="card-text">Organiser: <%= @event.user.first_name %></p>
             <p class="card-text">Date: <%= @event.event_date %></p>
+
+              <%= simple_form_for [@event, Invitation.new] do |form| %>
+                <%= form.association :user, collection: User.all %>
+                <%= form.button :submit, class: "buttons" %>
+              <% end %>
+
             <button type="button"><%= link_to "Back to Events", "/events" %>
             <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
           </div>
@@ -36,7 +42,6 @@
           </div>
         </div>
       </div>
-
     </div>
     </div>
   </div>

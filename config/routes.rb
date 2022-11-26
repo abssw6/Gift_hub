@@ -14,4 +14,7 @@ Rails.application.routes.draw do
       resources :gifts, only: :show
     end
   end
-end
+  resources :events do
+    resources :invitations, only: :create
+  end
+  end
