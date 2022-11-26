@@ -8,4 +8,6 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :category, presence: true
   validates_inclusion_of :category, in: CATEGORIES
+
+  has_many :invitations
 end

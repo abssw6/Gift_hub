@@ -15,6 +15,22 @@
             <p class="card-text">Category: <%= @event.category %></p>
             <p class="card-text">Organiser: <%= @event.user.first_name %></p>
             <p class="card-text">Date: <%= @event.event_date %></p>
+
+
+              <%= simple_form_for [@event, Invitation.new] do |form| %>
+                <%= form.association :user, collection: User.all %>
+                <%= form.button :submit, class: "buttons" %>
+              <% end %>
+
+            <button type="button"><%= link_to "Back to Events", "/events" %>
+            <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          </div>
+
+          <div class="tab-pane card-body" id="wish-details" role="tabpanel">
+            <h5 class="card-title">Title: <%= @wishlist.name %></h5>
+            <div class="card-text">
+              Gifts:
+
               <h5 class="card-title">Title: <%= @wishlist.name %></h5>
               <p>Gifts:</p>
               <% @wishlist.gifts.each do |gift| %>
@@ -28,6 +44,8 @@
           </div>
         </div>
       </div>
+    </div>
+=======
       <button type="button"><%= link_to "Back to Events", "/events" %>
       <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     </div>
