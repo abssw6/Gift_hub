@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center my-5">
+  <div class="col-12 col-lg-6">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="true" href="#">Wishlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Event</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Title: <%= @wishlist.name %></h5>
+        <div class="card-text">
+          Gifts:
+          <% @wishlist.gifts each do |gift| %>
+            <%= gift.name %>
+            <%= gift.description %>
+            <%= gift.link %>
+          <% end %>
+        </div>
+        <button type="button"><%= link_to "Back to Events", "/events" %>
+        <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+      </div>
+    </div>
+    </div>
+  </div>

@@ -40,6 +40,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @wishlist = Wishlist.where(event_id: @event.id).first
   end
 
   def destroy
