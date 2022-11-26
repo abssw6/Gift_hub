@@ -22,7 +22,7 @@
           <% end %>
         </div>
         <button type="button"><%= link_to "Back to Events", "/events" %>
-        <button type="button"><%= link_to "Delete Event", event_path(@event.), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
     </div>
     </div>
