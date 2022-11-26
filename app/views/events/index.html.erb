@@ -3,12 +3,12 @@
   <div class="col-8">
 
 <div class="container" id="calendar-body">
-    <%= month_calendar(attribute: :event_date) do |date| %>
+    <%= month_calendar do |date| %>
     <div class="day">
       <%= date.day %>
       <% @events.each do |event| %>
       <h5 class="card-title">
-      <%= link_to event.title, event if event.event_date == date %>
+      <%= link_to event.title, event if event.start_time == date %>
       </h5>
       <% end %>
     </div>
@@ -31,7 +31,7 @@
     <div class="calendar_plan text-center">
       <div class="cl_plan">
         <p>Your Next Event</p>
-        <div class="cl_title"><%= @events.first.event_date.strftime('%A, %d-%m-%Y') %></div>
+        <div class="cl_title"><%= @events.first.start_time.strftime('%A, %d-%m-%Y') %></div>
         <div class="cl_copy"><%= @events.first.title %></div>
         <div class="cl_add">
           <%= link_to event_path(@events.first) do %>
@@ -44,7 +44,7 @@
         <% @events[1..-1].each do |event| %>
           <div class="event_item">
             <div class="ei_Dot dot_active"></div>
-            <div class="ei_Title"><%= event.event_date.strftime('%A, %d-%m-%Y') %></div>
+            <div class="ei_Title"><%= event.start_time.strftime('%A, %d-%m-%Y') %></div>
             <div class="ei_Copy"><%= event.title %> <%= event.category %></div>
             <%= link_to 'Event Details', event %>
           </div>

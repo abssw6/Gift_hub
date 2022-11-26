@@ -36,13 +36,13 @@ end
   )
 
     event_1 = Event.create(
-      event_date: Faker::Date.in_date_period,
+      start_time: Faker::Date.in_date_period,
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
     )
     event_2 = Event.create(
-      event_date: Faker::Date.in_date_period,
+      start_time: Faker::Date.in_date_period,
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
