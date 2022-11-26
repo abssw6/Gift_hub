@@ -37,7 +37,7 @@
               <div class="card">
                 <%= gift.name %>
                 <%= gift.description %>
-                <a href=""><%= gift.link %></a>
+                <%= link_to "Link", "#{gift.link}" %>
                 <% end %>
               </div>
             </div>

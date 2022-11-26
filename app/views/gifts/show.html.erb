@@ -5,6 +5,11 @@
       <p>Description: <%= @gift.description %></p>
       <p>Price: £<%= @gift.rrp %></p>
       <p>Buy it here: <%= @gift.link %></p>
-      <button type="button" class="buttons">
-    </div>
+      <button type="button" class="buttons"></button>
   </div>
+  </div>
+</div>
+
+
+
+<%= link_to "Commit Gift", commit_gift_event_wishlist_gift_path, params: { gift_id: @gift.id } %>

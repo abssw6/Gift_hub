@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :events do
     resources :wishlists, only: :show do
-      resources :gifts, only: :show
+      resources :gifts, only: :show do
+        member do
+          get 'commit_gift'
+        end
+      end
     end
   end
   resources :events do
