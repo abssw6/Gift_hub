@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   CATEGORIES = ["Birthday", "Wedding", "Babyshower", "Covid", "Funeral", "Breakup", "No Reason"]
   belongs_to :user
+  has_one :wishlist
 
   validates :event_date, presence: true
 
