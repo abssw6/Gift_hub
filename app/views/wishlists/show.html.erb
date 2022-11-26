@@ -15,7 +15,7 @@
         <h5 class="card-title">Title: <%= @wishlist.name %></h5>
         <div class="card-text">
           Gifts:
-          <% @wishlist.gifts each do |gift| %>
+          <% @wishlist.gifts.each do |gift| %>
             <%= gift.name %>
             <%= gift.description %>
             <%= gift.link %>
