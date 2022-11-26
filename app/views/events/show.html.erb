@@ -6,19 +6,16 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="true" href="#event-details" data-toggle="tab" role="tab">Event Details</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#wish-details" data-toggle="tab" role="tab">Wish List</a>
-          </li>
         </ul>
       </div>
 
       <div class="col-md-9">
         <div class="tab-content">
-          <div class="tab-pane card-body active" id="event-details" role="tabpanel">
             <h5 class="card-title">Title: <%= @event.title %></h5>
             <p class="card-text">Category: <%= @event.category %></p>
             <p class="card-text">Organiser: <%= @event.user.first_name %></p>
             <p class="card-text">Date: <%= @event.event_date %></p>
+
 
               <%= simple_form_for [@event, Invitation.new] do |form| %>
                 <%= form.association :user, collection: User.all %>
@@ -33,15 +30,22 @@
             <h5 class="card-title">Title: <%= @wishlist.name %></h5>
             <div class="card-text">
               Gifts:
+
+              <h5 class="card-title">Title: <%= @wishlist.name %></h5>
+              <p>Gifts:</p>
               <% @wishlist.gifts.each do |gift| %>
+              <div class="card">
                 <%= gift.name %>
                 <%= gift.description %>
-                <%= gift.link %>
-              <% end %>
+                <a href=""><%= gift.link %></a>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+=======
+      <button type="button"><%= link_to "Back to Events", "/events" %>
+      <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     </div>
-  </div>

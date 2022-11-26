@@ -23,7 +23,8 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save!
-      redirect_to events_path(@event)
+      @wishlist = Wishlist.create(name: @event.title, event_id: @event.id)
+      redirect_to event_wishlist_path(event_id: @event.id, id: @wishlist.id)
     else
       render 'event/show', status: :unprocessable_entity
     end
