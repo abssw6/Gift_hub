@@ -41,7 +41,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @users_to_select = User.all
     @wishlist = Wishlist.where(event_id: @event.id).first
+    @invitees = Invitation.where(event_id: @event.id)
   end
 
   def destroy

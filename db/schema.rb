@@ -43,6 +43,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_154211) do
     t.index ["wishlist_id"], name: "index_gifts_wishlists_on_wishlist_id"
   end
 
+  create_table "invitations", force: :cascade do |t|
+    t.string "status"
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_invitations_on_event_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
   create_table "usercommits", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "wishlist_id", null: false
@@ -82,6 +92,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_154211) do
   add_foreign_key "events", "users"
   add_foreign_key "gifts_wishlists", "gifts"
   add_foreign_key "gifts_wishlists", "wishlists"
+  add_foreign_key "invitations", "events"
+  add_foreign_key "invitations", "users"
   add_foreign_key "usercommits", "events"
   add_foreign_key "usercommits", "gifts"
   add_foreign_key "usercommits", "users"

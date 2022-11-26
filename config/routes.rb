@@ -12,7 +12,14 @@ Rails.application.routes.draw do
   resources :events do
     resources :wishlists, only: [:show, :edit] do
       resources :gifts_wishlists, only: [:create]
-      resources :gifts, only: :show
+      resources :gifts, only: :show do
+        member do
+          get 'commit_gift'
+        end
+      end
     end
   end
-end
+    resources :events do
+      resources :invitations, only: :create
+    end
+  end
