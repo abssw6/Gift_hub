@@ -2,11 +2,11 @@ require 'date'
 
 class EventsController < ApplicationController
   def index
-    @events = Event.where("event_date > '#{DateTime.now}'").sort_by(&:event_date)
+    @events = Event.all
     if params[:query].present?
       @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
     else
-      @events = Event.all
+      @events = Event.where("event_date > '#{DateTime.now()}'").sort_by { |event| event.event_date }
     end
   end
 
