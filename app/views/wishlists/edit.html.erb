@@ -1,0 +1,25 @@
+<h1 class="text-center">Add some gifts</h1>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Price</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Gift.all.each do |gift| %>
+      <tr>
+        <td><%= gift.name %></td>
+        <td><%= gift.gift_type %></td>
+        <td><%= gift.rrp %></td>
+        <td><%= gift.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

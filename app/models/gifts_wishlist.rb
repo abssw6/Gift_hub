@@ -1,0 +1,2 @@
+class GiftsWishlist < ApplicationRecord
+end
