@@ -2,7 +2,7 @@ require 'date'
 
 class EventsController < ApplicationController
   def index
-    @events = Event.where("event_date > '#{DateTime.now()}'").sort_by { |event| event.event_date }
+    @events = Event.where("event_date > '#{DateTime.now}'").sort_by(&:event_date)
     if params[:query].present?
       @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
     else
@@ -35,9 +35,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update(event_params)
-      redirect_to @event, notice: 'Event was successfully updated.'
-    end
+    redirect_to @event, notice: 'Event was successfully updated.' if @event.update(event_params)
   end
 
   def show

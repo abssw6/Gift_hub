@@ -14,6 +14,19 @@ Gift.destroy_all
 CATEGORIES = ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift and 30 gifts"
+
+gifts = []
+ 5.times do
+  gifts << Gift.create(
+    name: Faker::Commerce.brand,
+    gift_type: Faker::Commerce.department,
+    rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
+    description: Faker::Commerce.product_name,
+    link: Faker::Internet.url
+  )
+
+end
+
 10.times do
   user = User.create(
     first_name: Faker::Name.first_name,
@@ -22,31 +35,29 @@ puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift and 3
     password: "123456"
   )
 
-  2.times do
-    event = Event.create(
+    event_1 = Event.create(
       event_date: Faker::Date.in_date_period,
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
     )
-    gifts = 5.times do
-      Gift.create(
-        name: Faker::Commerce.brand,
-        gift_type: Faker::Commerce.department,
-        rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
-        description: Faker::Commerce.product_name,
-        link: Faker::Internet.url
-      )
-    end
-      2.times do
-        Wishlist.create(
-          name: "Hello World",
-          event: event,
-          gifts: gifts
-        )
+    event_2 = Event.create(
+      event_date: Faker::Date.in_date_period,
+      category: CATEGORIES.sample,
+      title: Faker::Kpop.iii_groups,
+      user: user
+    )
 
-    end
-  end
+    Wishlist.create(
+      name: "Hello World",
+      event: event_1,
+      gifts: gifts
+    )
+    Wishlist.create(
+      name: "Hello World",
+      event: event_2,
+      gifts: gifts
+    )
 end
 puts "Done"
 
