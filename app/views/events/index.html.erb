@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-8">
 
@@ -15,42 +16,42 @@
 </div>
 </div>
 
+
 <div class="col-4">
-  <div id="upcoming">
-    <div class="calendar dark">
-      <div class="calendar_header text-center">
-        <h1 class ="header_title">Upcoming Events</h1>
-        <p class="header_copy">See Events and Wishlists</p>
-      </div>
-      <% if @events.empty? %>
-      <div>No Events</div>
-      <% else  %>
-      <div class="calendar_plan text-center">
-        <div class="cl_plan">
-          <p>Your Next Event</p>
-          <div class="cl_title"><%= @events.first.event_date.strftime('%A, %d-%m-%Y') %></div>
-          <div class="cl_copy"><%= @events.first.title %></div>
-          <div class="cl_add">
-            <%= link_to event_path(@events.first) do %>
-              <i class="fa-solid fa-calendar-week"></i>
-              <% end %>
-          </div>
-        </div>
-        <div class="calendar_events">
-          <p class="ce_title">Upcoming Events</p>
-          <% @events[1..-1].each do |event| %>
-            <div class="event_item">
-              <div class="ei_Dot dot_active"></div>
-              <div class="ei_Title"><%= event.event_date.strftime('%A, %d-%m-%Y') %></div>
-              <div class="ei_Copy"><%= event.title %> <%= event.category %></div>
-              <%= link_to 'Show', event %>
-              <%= link_to 'Edit', edit_event_path(event) %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <% end %>
+<div class="container" id="upcoming">
+  <div class="calendar dark">
+    <div class="calendar_header text-center">
+      <h1 class ="header_title">Upcoming Events</h1>
+      <p class="header_copy">See Events and Wishlists</p>
+
     </div>
+    <% if @events.empty? %>
+    <div>No Events</div>
+    <% else  %>
+    <div class="calendar_plan text-center">
+      <div class="cl_plan">
+        <p>Your Next Event</p>
+        <div class="cl_title"><%= @events.first.event_date.strftime('%A, %d-%m-%Y') %></div>
+        <div class="cl_copy"><%= @events.first.title %></div>
+        <div class="cl_add">
+          <%= link_to event_path(@events.first) do %>
+            <i class="fa-solid fa-calendar-week"></i>
+            <% end %>
+        </div>
+      </div>
+      <div class="calendar_events">
+        <p class="ce_title">Upcoming Events</p>
+        <% @events[1..-1].each do |event| %>
+          <div class="event_item">
+            <div class="ei_Dot dot_active"></div>
+            <div class="ei_Title"><%= event.event_date.strftime('%A, %d-%m-%Y') %></div>
+            <div class="ei_Copy"><%= event.title %> <%= event.category %></div>
+            <%= link_to 'Event Details', event %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
 </div>

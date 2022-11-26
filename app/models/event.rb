@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  CATEGORIES= ["Birthday", "Wedding", "Babyshower", "Covid", "Funeral", "Breakup", "No Reason"]
+  CATEGORIES = ["Birthday", "Wedding", "Babyshower", "Covid", "Funeral", "Breakup", "No Reason"]
   belongs_to :user
 
   validates :event_date, presence: true

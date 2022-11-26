@@ -2,6 +2,11 @@
   display: flex;
 }
 
+a:hover {
+    color: white;
+  }
+
+
 $off_white:#fafafa;
 $light_grey:#A39D9E;
 
@@ -20,7 +25,7 @@ body{
 }
 
 #calendar {
-  margin-left: 300px;
+  margin-left: 100px;
   width: 1200px;
   flex-grow: 1;
 }
