@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2022_11_26_151839) do
-
 ActiveRecord::Schema[7.0].define(version: 2022_11_26_154211) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_154211) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "invitations", force: :cascade do |t|
     t.string "status"
     t.bigint "user_id", null: false
@@ -54,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_154211) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_invitations_on_event_id"
     t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
 
   create_table "usercommits", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -67,7 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_154211) do
     t.index ["gift_id"], name: "index_usercommits_on_gift_id"
     t.index ["user_id"], name: "index_usercommits_on_user_id"
     t.index ["wishlist_id"], name: "index_usercommits_on_wishlist_id"
-
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,7 +90,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_154211) do
   add_foreign_key "events", "users"
   add_foreign_key "invitations", "events"
   add_foreign_key "invitations", "users"
-
   add_foreign_key "usercommits", "events"
   add_foreign_key "usercommits", "gifts"
   add_foreign_key "usercommits", "users"
