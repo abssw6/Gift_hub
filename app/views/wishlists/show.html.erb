@@ -30,7 +30,8 @@
                     <th>Name</th>
                     <th>Description</th>
                     <th>Link</th>
-                    <th>Add to wishlist</th>
+                    <th></th>
+                    <th>Add</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,8 +42,8 @@
                 <td> <%= gift_wishlist.gift.description %></td>
                 <td> <%= gift_wishlist.gift.link %></td>
                   <td><%=link_to "See your gift",  gift_path(gift_wishlist.gift) %></td>
-                  <td><%=  %></td>
-
+                  <td><input type="checkbox" id="commit"></td>
+                  <label for="commit">
                   </tr>
               <% end %>
             </div>
