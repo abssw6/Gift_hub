@@ -41,6 +41,11 @@
                   <td><%=link_to "See your gift",  gift_path(gift_wishlist.gift) %></td>
                   <td><%=  %></td>
                   </tr>
+                  <%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
+                  <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
+                  <%= f.hidden_field :is_commited, value: true %>
+                  <%= f.submit "I'll get this", class: "small-button" %>
+                  <% end %>
               <% end %>
             </div>
           </div>

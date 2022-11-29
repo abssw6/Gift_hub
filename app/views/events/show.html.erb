@@ -23,7 +23,7 @@
 
           <div class="card-text">
               <%= simple_form_for [@event, Invitation.new] do |form| %>
-                <%= form.input :user, as: :select, collection: @users %>
+                <%= form.input :user, as: :select, collection: @users, label: 'Invite a friend' %>
                 <%= form.button :submit, class: "buttons" %>
               <% end %>
 
