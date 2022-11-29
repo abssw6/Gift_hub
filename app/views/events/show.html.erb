@@ -21,13 +21,16 @@
             <p class="card-text">Date: <%= @event.event_date %></p>
 
               <%= simple_form_for [@event, Invitation.new] do |form| %>
-                <%= form.association :user, collection: @users_to_select.map { |user| ["#{user.first_name} - #{user.email}", user] }, label_method: :first, value_method: :second %>
+                <%= form.input :user, as: :select, collection: @users %>
                 <%= form.button :submit, class: "buttons" %>
               <% end %>
 
-              <% @invitees.each do |invitee| %>
-                <%= invitee.user.first_name %>
+            <div class="card text-center align-self-center">
+              <h5>Invited Users:</h5>
+              <p><% @invitees.each do |invitee| %></p>
+              <p> <%= invitee.user.first_name %> </p>
               <% end %>
+            </div>
 
             <button type="button"><%= link_to "Back to Events", "/events" %>
             <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>

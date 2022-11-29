@@ -41,7 +41,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @users_to_select = User.all
+    @users = User.all.map { |user| "#{user.first_name} #{user.last_name}" }
     @wishlist = Wishlist.where(event_id: @event.id).first
     @invitees = Invitation.where(event_id: @event.id)
   end
