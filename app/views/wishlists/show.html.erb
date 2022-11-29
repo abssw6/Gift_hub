@@ -33,11 +33,12 @@
                   </tr>
                 </thead>
                 <tbody>
-              <% @wishlist.gifts.each do |gift| %>
+              <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
               <tr class="card-body">
-                <td> <%= gift.name %></td>
-                <td> <%= gift.description %></td>
-                  <td><%=link_to "See your gift",  gift_path(@wishlist) %></td>
+                <td> <%= gift_wishlist.gift.name %></td>
+                <td> <%= gift_wishlist.gift.description %></td>
+                <td> <%= gift_wishlist.gift.link %></td>
+                  <td><%=link_to "See your gift",  gift_path(gift_wishlist.gift) %></td>
                   <td><%=  %></td>
                   </tr>
               <% end %>
