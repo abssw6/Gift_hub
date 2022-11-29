@@ -27,19 +27,22 @@
               <br>
                 <thead>
                   <tr>
-                    <th>name</th>
-                    <th>description</th>
-                    <th>link</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Link</th>
+                    <th>Add to wishlist</th>
                   </tr>
                 </thead>
                 <tbody>
               <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
               <tr class="card-body">
+
                 <td> <%= gift_wishlist.gift.name %></td>
                 <td> <%= gift_wishlist.gift.description %></td>
                 <td> <%= gift_wishlist.gift.link %></td>
                   <td><%=link_to "See your gift",  gift_path(gift_wishlist.gift) %></td>
                   <td><%=  %></td>
+
                   </tr>
               <% end %>
             </div>
