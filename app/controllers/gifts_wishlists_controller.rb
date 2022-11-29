@@ -8,7 +8,7 @@ class GiftsWishlistsController < ApplicationController
   private
 
   def add_params
-    params.require(:wishlist, :gift).permit(:event_date, :category, :title)
+    params.require(:gifts).permit(:event_date, :category, :title)
   end
   # params
 end

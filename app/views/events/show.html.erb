@@ -20,6 +20,8 @@
             <p class="card-text">Organiser: <%= @event.user.first_name %></p>
             <p class="card-text">Date: <%= @event.event_date %></p>
 
+
+          <div class="card-text">
               <%= simple_form_for [@event, Invitation.new] do |form| %>
                 <%= form.association :user, collection: @users_to_select.map { |user| ["#{user.first_name} - #{user.email}", user] }, label_method: :first, value_method: :second %>
                 <%= form.button :submit, class: "buttons" %>
@@ -30,22 +32,26 @@
               <% end %>
 
             <button type="button"><%= link_to "Back to Events", "/events" %>
+            <button type="button"><%= link_to "See this Wishlist", event_wishlist_url(@event) %>
             <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
           </div>
 
-          <div class="tab-pane card-body" id="wish-details" role="tabpanel">
-            <h5 class="card-title">Title: <%= @wishlist.name %></h5>
-            <div class="card-text">
-              Gifts:
-              <% @wishlist.gifts.each do |gift| %>
-                <%= gift.name %>
-                <%= gift.description %>
-                <%= gift.link %>
-              <% end %>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
     </div>
   </div>
+
+
+<%# <div class="tab-pane card-body" id="wish-details" role="tabpanel">
+            <h5 class="card-title">Title: <%= @wishlist.name</h5>
+            <%# <div class="card-text">
+              Gifts:
+              <% @wishlist.gifts.each do |gift| %>
+                <%# <%= gift.name %>
+                <%# <%= gift.description %>
+                <%# <%= gift.link %>
+              <%# <% end %>
+            <%# </div>
+          </div> %>
