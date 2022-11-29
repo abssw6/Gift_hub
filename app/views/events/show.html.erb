@@ -32,7 +32,7 @@
               <% end %>
 
             <button type="button"><%= link_to "Back to Events", "/events" %>
-            <button type="button"><%= link_to "See this Wishlist", event_wishlist_url(@event) %>
+            <button type="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %>
             <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
           </div>
 
