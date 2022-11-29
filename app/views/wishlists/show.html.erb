@@ -11,21 +11,38 @@
           </li>
         </ul>
       </div>
-
+      <div class="Upload Form">
+        <div class="card-body">
+          <h5 class="card-title">Add some gifts to your wishlist</h5>
       <%= simple_form_for ([@event, @wishlist, GiftsWishlist.new]) do |f|%>
         <%= f.input :gift_id, collection: Gift.all %>
-        <%= f.button :submit, class: "buttons" %>
+        <button type="button" class="buttons"><%= f.button :submit %>
+        <%# <%= f.button :submit, class: "buttons" %>
       <% end %>
-      <div class="card-body">
-        <h5 class="card-title">Title: <%= @wishlist.name %></h5>
-        <div class="card-text">
-          Gifts:
-          <% @wishlist.gifts.each do |gift| %>
-            <%= gift.name %>
-            <%= gift.description %>
-            <%= gift.link %>
-          <% end %>
-        </div>
+      </div>
+      </div>
+      <div class="tab-pane card-body" id="wish-details" role="tabpanel">
+            <h5 class="card-title">Title: <%= @wishlist.name %></h5>
+            <table>
+              <br>
+                <thead>
+                  <tr>
+                    <th>name</th>
+                    <th>description</th>
+                    <th>link</th>
+                  </tr>
+                </thead>
+                <tbody>
+              <% @wishlist.gifts.each do |gift| %>
+              <tr class="card-body">
+                <td> <%= gift.name %></td>
+                <td> <%= gift.description %></td>
+                  <td><%=link_to "See your gift",  event_wishlist_gift_path(@event, @wishlist) %></td>
+                  <td><%=  %></td>
+                  </tr>
+              <% end %>
+            </div>
+          </div>
         <button type="button"><%= link_to "Back to Events", "/events" %>
         <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
