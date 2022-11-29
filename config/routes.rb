@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   # migration to add user_id to gifts_wishlist
-  # add route for gifts_wishlists [update maybe a show as well]
+  # add route for gifts_wishlists [update maybe a show as well] DONE
   # tidy up the app for the new routes
   # then we need to add a form with hidden fields to gifts_wishlist
   # make sure the routes are working
