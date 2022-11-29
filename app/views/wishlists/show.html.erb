@@ -14,7 +14,7 @@
       <div class="Upload Form">
         <div class="card-body">
           <h5 class="card-title">Add some gifts to your wishlist</h5>
-      <%= simple_form_for ([@event, @wishlist, GiftsWishlist.new]) do |f|%>
+      <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
         <%= f.input :gift_id, collection: Gift.all %>
         <button type="button" class="buttons"><%= f.button :submit %>
         <%# <%= f.button :submit, class: "buttons" %>
@@ -37,7 +37,7 @@
               <tr class="card-body">
                 <td> <%= gift.name %></td>
                 <td> <%= gift.description %></td>
-                  <td><%=link_to "See your gift",  event_wishlist_gift_path(@event, @wishlist) %></td>
+                  <td><%=link_to "See your gift",  gift_path(@wishlist) %></td>
                   <td><%=  %></td>
                   </tr>
               <% end %>
