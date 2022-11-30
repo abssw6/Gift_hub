@@ -45,6 +45,11 @@
                   <td><input type="checkbox" id="commit"></td>
                   <label for="commit">
                   </tr>
+                  <%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
+                  <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
+                  <%= f.hidden_field :is_commited, value: true %>
+                  <%= f.submit "I'll get this", class: "small-button" %>
+                  <% end %>
               <% end %>
             </div>
           </div>
