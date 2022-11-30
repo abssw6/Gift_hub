@@ -37,19 +37,18 @@
                 <tbody>
               <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
               <tr class="card-body">
-
                 <td> <%= gift_wishlist.gift.name %></td>
                 <td> <%= gift_wishlist.gift.description %></td>
                 <td> <%= gift_wishlist.gift.link %></td>
                   <td><%=link_to "See your gift",  gift_path(gift_wishlist.gift) %></td>
                   <td><input type="checkbox" id="commit"></td>
                   <label for="commit">
-                  </tr>
-                  <%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
+                  <td><%= simple_form_for [@wishlist, UserCommit.new] do |f| %>
                   <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
                   <%= f.hidden_field :is_commited, value: true %>
                   <%= f.submit "I'll get this", class: "small-button" %>
-                  <% end %>
+                  <% end %></td>
+                  </tr>
               <% end %>
             </div>
           </div>
