@@ -45,7 +45,7 @@
                     <td><%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
                     <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
                     <%= f.hidden_field :is_commited, value: true %>
-                    <%= f.submit "I'll get this", class: "small-button", disable_with: false if gift_wishlist.gift.usercommits.empty? %>
+                    <%= f.submit "I'll get this", class: "small-button", disable_with: false unless gift_wishlist.gift.usercommits.empty? %>
                     <% end %>
                     </td>
                 </tr>
