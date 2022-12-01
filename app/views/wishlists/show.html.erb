@@ -12,16 +12,18 @@
         </ul>
       </div>
 
-      <div class="Upload Form">
-        <div class="card-body">
-          <h5 class="card-title"><i class="fa-solid fa-gift">Add some gifts to your wishlist</i></h5>
-      <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
-        <%= f.input :gift_id, collection: Gift.all %>
-        <button type="button" class="buttons"><%= f.button :submit %>
-        <%# <%= f.button :submit, class: "buttons" %>
-      <% end %>
-      </div>
-      </div>
+        <div class="Upload Form">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fa-solid fa-gift">Add some gifts to your wishlist</h5>
+              <% if current_user == @event.user %>
+                <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
+                  <%= f.input :gift_id, collection: Gift.all %>
+                  <button type="button" class="buttons"><%= f.button :submit %></button>
+                  <%# <%= f.button :submit, class: "buttons" %>
+                  <% end %>
+              <% end %>
+            </div>
+        </div>
 
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
             <h5 class="card-title">Title: <%= @wishlist.name %></h5>
