@@ -13,7 +13,7 @@ class UsercommitsController < ApplicationController
     @wishlist = Wishlist.where(event_id: @event.id).first
 
     if @usercommit.save!
-      redirect_to
+      redirect_to request.referrer, notice: "Gift Committed!"
     else
       render 'gift/show', status: :unprocessable_entity
     end

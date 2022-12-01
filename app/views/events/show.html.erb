@@ -56,27 +56,15 @@
                     </td>
                 </tr>
               <% end %>
+              </table>
               </div>
             </div>
             <button type="button"><%= link_to "Back to Events", "/events" %>
             <button type="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %>
             <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
           </div>
-
         </div>
       </div>
     </div>
     </div>
   </div>
-
-
-<%# <div class="tab-pane card-body" id="wish-details" role="tabpanel">
-            <h5 class="card-title">Title: <%= @wishlist.name</h5>
-            <%# <div class="card-text">
-              Gifts:
-              <% @wishlist.gifts.each do |gift| %>
-                <%# <%= gift.name %>
-                <%# <%= gift.description %>
-                <%# <%= gift.link %>
-              <%# <% end %>
-            <%# </div>
