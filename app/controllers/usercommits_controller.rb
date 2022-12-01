@@ -8,9 +8,10 @@ class UsercommitsController < ApplicationController
     @wishlist = Wishlist.find(params[:wishlist_id])
     @event = @wishlist.event
     @usercommit.user = current_user
-
     @usercommit.event = @event
     @usercommit.wishlist = @wishlist
+    @wishlist = Wishlist.where(event_id: @event.id).first
+
     if @usercommit.save!
       redirect_to
     else
