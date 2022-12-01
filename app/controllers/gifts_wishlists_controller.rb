@@ -3,6 +3,7 @@ class GiftsWishlistsController < ApplicationController
     @add = GiftsWishlist.new(add_params)
     @add.wishlist_id = params[:wishlist_id]
     @add.save!
+    redirect_to wishlist_path(params[:wishlist_id])
     # wishlist
 
   end
