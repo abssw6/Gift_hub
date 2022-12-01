@@ -6,6 +6,7 @@ class UsercommitsController < ApplicationController
   def create
     @usercommit = Usercommit.new(usercommit_params)
     @usercommit.user = current_user
+    @wishlist = Wishlist.where(event_id: @event.id).first
     if @usercommit.save!
       Usercommit.create(user_id: current_user.id, wishlist_id: @wishlist.id,
                         event_id: @event.id, gift_id: params[:gift_id])
