@@ -26,8 +26,8 @@
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
             <h5 class="card-title">Title: <%= @wishlist.name %></h5>
 
-          <div class="card-1" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
-            <table class="table table-hover">
+          <div class="card-1" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+            <table class="table table-hover" id="table">
               <br>
                 <thead>
                   <tr>
@@ -53,7 +53,6 @@
                     </td>
                 </tr>
               <% end %>
-
               </div>
             </div>
           </div>
@@ -63,3 +62,7 @@
         <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     </div>
   </div>
+        </div>
+          </div>
+      </div>
+    </div>
