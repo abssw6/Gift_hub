@@ -3,6 +3,7 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.find(params[:id])
     # @event = Event.where(wishlist_id: @wishlist.id)
     @event = @wishlist.event
+    @current_user_commit = Usercommit.new
   end
 
   def index

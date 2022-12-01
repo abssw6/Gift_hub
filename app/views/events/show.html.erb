@@ -18,12 +18,12 @@
             <h5 class="card-title">Title: <%= @event.title %></h5>
             <p class="card-text">Category: <%= @event.category %></p>
             <p class="card-text">Organiser: <%= @event.user.first_name %></p>
-            <p class="card-text">Date: <%= @event.event_date %></p>
+            <p class="card-text">Date: <%= @event.event_date.strftime('%A, %d-%m-%Y') %></p>
 
 
           <div class="card-text">
               <%= simple_form_for [@event, Invitation.new] do |form| %>
-                <%= form.input :user, as: :select, collection: @users %>
+                <%= form.input :user, as: :select, collection: @users, label: 'Invite a friend' %>
                 <%= form.button :submit, class: "buttons" %>
               <% end %>
 
