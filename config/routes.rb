@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :wishlists, only: [:show, :edit] do
+    resources :usercommits, only: [:create]
     resources :gifts_wishlists, only: [:create]
   end
 
