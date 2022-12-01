@@ -11,16 +11,17 @@
           </li>
         </ul>
       </div>
-      <div class="Upload Form">
-        <div class="card-body">
-          <h5 class="card-title">Add some gifts to your wishlist</h5>
-      <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
-        <%= f.input :gift_id, collection: Gift.all %>
-        <button type="button" class="buttons"><%= f.button :submit %>
-        <%# <%= f.button :submit, class: "buttons" %>
-      <% end %>
-      </div>
-      </div>
+        <div class="Upload Form">
+          <div class="card-body">
+            <h5 class="card-title">Add some gifts to your wishlist</h5>
+                <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
+                  <%= f.input :gift_id, collection: Gift.all %>
+                  <button type="button" class="buttons"><%= f.button :submit %></button>
+                  <%# <%= f.button :submit, class: "buttons" %>
+                <% end %>
+            </div>
+        </div>
+
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
             <h5 class="card-title">Title: <%= @wishlist.name %></h5>
             <table>
@@ -37,24 +38,21 @@
                 <tbody>
               <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
               <tr class="card-body">
-                <td> <%= gift_wishlist.gift.name %></td>
-                <td> <%= gift_wishlist.gift.description %></td>
-                <td> <%= gift_wishlist.gift.link %></td>
-                  <td><%=link_to "See your gift",  gift_path(gift_wishlist.gift) %></td>
-                  <td><input type="checkbox" id="commit"></td>
-                  <label for="commit">
-                  <td><%= simple_form_for [@wishlist, UserCommit.new] do |f| %>
-                  <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
-                  <%= f.hidden_field :is_commited, value: true %>
-                  <%= f.submit "I'll get this", class: "small-button" %>
-                  <% end %></td>
-                  </tr>
+                  <td> <%= gift_wishlist.gift.name %></td>
+                  <td> <%= gift_wishlist.gift.description %></td>
+                  <td> <%= gift_wishlist.gift.link %></td>
+                    <td><%=link_to "See your gift",  gift_path(gift_wishlist.gift) %></td>
+                    <td><%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
+                    <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
+                    <%= f.hidden_field :is_commited, value: true %>
+                    <%= f.submit "I'll get this", class: "small-button", disable_with: false if gift_wishlist.gift.usercommits.empty? %>
+                    <% end %>
+                    </td>
+                </tr>
               <% end %>
-            </div>
+        </div>
           </div>
-        <button type="button"><%= link_to "Back to Events", "/events" %>
-        <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
     </div>
-    </div>
-  </div>
+  <button type="button"><%= link_to "Back to Events", "/events" %>
+  <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
