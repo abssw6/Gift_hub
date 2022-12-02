@@ -1,28 +1,23 @@
 <div class="d-flex justify-content-center my-5">
   <div class="col-12 col-lg-6">
     <div class="card text-center">
-      <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#">Wishlist</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Event</a>
-          </li>
-        </ul>
-      </div>
       <div class="Upload Form">
         <div class="card-body">
           <h5 class="card-title">Add some gifts to your wishlist</h5>
-      <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
+            <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
         <%= f.input :gift_id, collection: Gift.all %>
-        <button type="button" class="buttons"><%= f.button :submit %>
+        <hr />
+        <%= button_tag(type: 'submit', class: "button") do %>
+            Add to Wishlist
+        <% end %>
+        <%#= f.button :submit %>
         <%# <%= f.button :submit, class: "buttons" %>
       <% end %>
       </div>
       </div>
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
             <h5 class="card-title">Title: <%= @wishlist.name %></h5>
+            <div class="text-center">
             <table>
               <br>
                 <thead>
@@ -31,7 +26,7 @@
                     <th>Description</th>
                     <th>Link</th>
                     <th></th>
-                    <th>Add</th>
+                    <th>Bought it yet?</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -47,10 +42,8 @@
                   </tr>
               <% end %>
             </div>
-          </div>
-        <button type="button"><%= link_to "Back to Events", "/events" %>
-        <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        <button class="button" type="button"><%= link_to "Back to Events", "/events" %>
+        <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
     </div>
-    </div>
-  </div>
+</div>
