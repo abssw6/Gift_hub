@@ -5,11 +5,11 @@
         <div class="card-body">
           <h5 class="card-title">Add some gifts to your wishlist</h5>
             <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
-        <%= f.input :gift_id, collection: Gift.all %>
-        <hr />
-        <%= button_tag(type: 'submit', class: "button") do %>
-            Add to Wishlist
-        <% end %>
+              <%= f.input :gift_id, collection: Gift.all %>
+              <hr />
+              <%= button_tag(type: 'submit', class: "button") do %>
+                  Add to Wishlist
+            <% end %>
         <%#= f.button :submit %>
         <%# <%= f.button :submit, class: "buttons" %>
       <% end %>
