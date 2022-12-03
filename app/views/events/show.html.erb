@@ -21,20 +21,12 @@
 
           <div class="card-text">
               <%= simple_form_for [@event, Invitation.new] do |f| %>
-                <%= f.input :user, as: :select, collection: @users %>
+                <%= f.input :user, as: :select, label: "Invite Users", collection: @users %>
                 <div class="my-2">
                 <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
                 </div>
-
               <% end %>
 
-
-            <%# <div class="card text-center align-self-center">
-              <h5>Invited Users:</h5>
-              <%# <p><% @invitees.each do |invitee| %>
-              <%# <p> <%= invitee.user.first_name </p> %>
-              <%# <% end %>
-            <%# </div> %>
 
                <h5 class="card-title">Title: <%= @wishlist.name %></h5>
 
@@ -61,10 +53,9 @@
               </div>
             </div>
 
-            <%# <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %>
             <div class="d-flex justify-content-around my-2">
-            <button class="button" type="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %>
-            <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+              <button class="button" type="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %></button>
+              <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></button>
             </div>
 
           </div>

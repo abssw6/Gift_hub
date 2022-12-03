@@ -13,18 +13,9 @@
                   Add to Wishlist
             <% end %>
           <% end %>
-        <%#= f.button :submit %>
-        <%# <%= f.button :submit, class: "buttons" %>
       <% end %>
       </div>
       </div>
-
-
-          <%# <li class="nav-item">
-            <a class="nav-link" href="#">Event</a>
-          </li> %>
-
-
 
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
             <h5 class="card-title">Event: <%= @wishlist.name %></h5>
@@ -48,11 +39,19 @@
                   <td> <%= gift_wishlist.gift.description %></td>
                   <td> <%= gift_wishlist.gift.link %></td>
                     <td><%=link_to "See your gift",  gift_path(gift_wishlist.gift) %></td>
-                    <td><%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
-                    <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
-                    <%= f.hidden_field :is_commited, value: true %>
-                    <%= f.submit "I'll get this", class: "small-button", disable_with: true unless gift_wishlist.gift.usercommits.empty? %>
-                    <% end %>
+                    <td>
+                      <% if gift_wishlist.gift.usercommits.empty? %>
+                        <%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
+                          <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
+                          <%= f.hidden_field :is_commited, value: true %>
+                          <%= f.submit "I'll get this", class: "small-button", disable_with: true %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to "Not Getting",
+                          usercommit_path(Usercommit.where(user: current_user, gift: gift_wishlist.gift).first),
+                          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                        %>
+                      <% end %>
                     </td>
               <% end %>
                 </tr>
@@ -66,6 +65,3 @@
       </div>
     </div>
 </div>
-          </div>
-      </div>
-    </div>
