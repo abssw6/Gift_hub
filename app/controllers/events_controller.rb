@@ -48,6 +48,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
+    Usercommit.delete(@event.wishlist.usercommit.id) if @event.wishlist.usercommit
     @event.destroy
     redirect_to events_path, status: :see_other
   end

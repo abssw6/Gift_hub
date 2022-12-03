@@ -19,6 +19,13 @@ class UsercommitsController < ApplicationController
     end
   end
 
+  def destroy
+    @usercommit = Usercommit.find(params[:id])
+    @usercommit.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to wishlist_path(wishlist_id: @usercommit.wishlist), status: :see_other
+  end
+
   private
 
   def usercommit_params
