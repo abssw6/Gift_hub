@@ -82,7 +82,7 @@ n = 1
       event: event_2,
       gifts: gifts.sample(5)
     )
-  n = +1
+  n = +4
 end
 
 puts "Done"
