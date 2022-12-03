@@ -18,7 +18,8 @@
       </div>
 
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
-            <h5 class="card-title">Event: <%= @wishlist.name %></h5>
+            <h5 class="card-title">EVENT: <%= @wishlist.name.upcase %></h5>
+            <br>
           <div class="card-1 card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
             <table class="table table-hover" id="table">
               <br>
@@ -30,17 +31,16 @@
                     <th scope="col">Link</th>
                     <th scope="col"></th>
                     <th scope="col">Commit to Buy?</th>
-
                   </tr>
                 </thead>
                 <tbody>
               <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
-              <tr class="card-body">
+                <tr class="card-body">
                   <td><%= image_tag gift_wishlist.gift.photo, size:  "50x50" %></td>
                   <td> <%= gift_wishlist.gift.name %></td>
                   <td> <%= gift_wishlist.gift.description %></td>
                   <td> <%= gift_wishlist.gift.link %></td>
-                    <td><%=link_to "See your gift",  gift_path(gift_wishlist.gift) %></td>
+                    <td><%=link_to "View Gift",  gift_path(gift_wishlist.gift) %></td>
                     <td>
                       <% if gift_wishlist.gift.usercommits.empty? %>
                         <%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
@@ -55,7 +55,7 @@
                         %>
                       <% end %>
                     </td>
-              <% end %>
+                <% end %>
                 </tr>
                 </table>
               </div>
