@@ -1,7 +1,8 @@
 class Event < ApplicationRecord
   CATEGORIES = ["Birthday", "Wedding", "Babyshower", "Covid", "Funeral", "Breakup", "No Reason"]
   belongs_to :user
-  has_one :wishlist
+  has_one :wishlist, dependent: :destroy
+  has_one :usercommit, through: :wishlist, dependent: :destroy
 
   validates :event_date, presence: true
 
@@ -9,5 +10,5 @@ class Event < ApplicationRecord
   validates :category, presence: true
   validates_inclusion_of :category, in: CATEGORIES
 
-  has_many :invitations
+  has_many :invitations, dependent: :destroy
 end
