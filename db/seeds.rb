@@ -19,7 +19,9 @@ CATEGORIES = ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
 puts "Creating test user"
 User.create!(
   email: "koji@lewagon.com",
-  password: "hello123"
+  password: "hello123",
+  first_name: "Koji",
+  last_name: "Samuels"
 )
 puts "done"
 
