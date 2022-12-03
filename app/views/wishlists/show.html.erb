@@ -1,9 +1,10 @@
 <div class="d-flex justify-content-center my-5">
   <div class="col-12 col-lg-6">
     <div class="card text-center">
-   
+
       <div class="Upload Form">
         <div class="card-body">
+        <% if current_user == @event.user %>
           <h5 class="card-title">Add some gifts to your wishlist</h5>
             <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
               <%= f.input :gift_id, collection: Gift.all %>
@@ -11,6 +12,7 @@
               <%= button_tag(type: 'submit', class: "button") do %>
                   Add to Wishlist
             <% end %>
+          <% end %>
         <%#= f.button :submit %>
         <%# <%= f.button :submit, class: "buttons" %>
       <% end %>
@@ -28,7 +30,7 @@
         </ul>
       </div>
 
-     
+
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
             <h5 class="card-title">Event: <%= @wishlist.name %></h5>
           <div class="card-1" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
