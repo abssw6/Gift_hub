@@ -8,7 +8,7 @@
           <h5 class="card-title">Add some gifts to your wishlist</h5>
             <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
               <%= f.input :gift_id, collection: Gift.all %>
-              <hr />
+
               <%= button_tag(type: 'submit', class: "button") do %>
                   Add to Wishlist
             <% end %>
@@ -19,21 +19,16 @@
       </div>
       </div>
 
-      <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#">Wishlist</a>
-          </li>
+
           <%# <li class="nav-item">
             <a class="nav-link" href="#">Event</a>
           </li> %>
-        </ul>
-      </div>
+
 
 
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
             <h5 class="card-title">Event: <%= @wishlist.name %></h5>
-          <div class="card-1" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+          <div class="card-1 card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
             <table class="table table-hover" id="table">
               <br>
                 <thead>
@@ -64,8 +59,10 @@
                 </table>
               </div>
             </div>
-        <button class="button" type="button"><%= link_to "Back to Events", "/events" %>
+        <div class="d-flex justify-content-around">
+        <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %>
         <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        </div>
       </div>
     </div>
 </div>

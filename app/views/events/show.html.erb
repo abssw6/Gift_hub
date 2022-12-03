@@ -23,7 +23,9 @@
           <div class="card-text">
               <%= simple_form_for [@event, Invitation.new] do |f| %>
                 <%= f.input :user, as: :select, collection: @users %>
+                <div class="my-2">
                 <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
+                </div>
 
               <% end %>
 
@@ -37,7 +39,7 @@
 
                <h5 class="card-title">Title: <%= @wishlist.name %></h5>
 
-          <div class="card-1" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+          <div class="card-1 card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
             <table class="table table-hover" id="table">
               <br>
                 <thead>
@@ -60,9 +62,11 @@
               </div>
             </div>
 
-            <button class="button" type="button"><%= link_to "Back to Events", "/events" %>
+            <%# <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %>
+            <div class="d-flex justify-content-around my-2">
             <button class="button" type="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %>
             <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+            </div>
 
           </div>
         </div>
