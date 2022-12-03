@@ -1,6 +1,22 @@
 <div class="d-flex justify-content-center my-5">
   <div class="col-12 col-lg-6">
     <div class="card text-center">
+   
+      <div class="Upload Form">
+        <div class="card-body">
+          <h5 class="card-title">Add some gifts to your wishlist</h5>
+            <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
+              <%= f.input :gift_id, collection: Gift.all %>
+              <hr />
+              <%= button_tag(type: 'submit', class: "button") do %>
+                  Add to Wishlist
+            <% end %>
+        <%#= f.button :submit %>
+        <%# <%= f.button :submit, class: "buttons" %>
+      <% end %>
+      </div>
+      </div>
+
       <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
@@ -12,19 +28,7 @@
         </ul>
       </div>
 
-        <div class="Upload Form">
-          <div class="card-body">
-            <h5 class="card-title">Add some gifts to your wishlist</h5>
-              <% if current_user == @event.user %>
-                <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
-                  <%= f.input :gift_id, collection: Gift.all %>
-                  <button type="button" class="buttons"><%= f.button :submit %></button>
-                  <%# <%= f.button :submit, class: "buttons" %>
-                  <% end %>
-              <% end %>
-            </div>
-        </div>
-
+     
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
             <h5 class="card-title">Event: <%= @wishlist.name %></h5>
           <div class="card-1" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
@@ -37,6 +41,7 @@
                     <th scope="col">Link</th>
                     <th scope="col"></th>
                     <th scope="col">Commit to Buy?</th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -56,9 +61,12 @@
                 </tr>
                 </table>
               </div>
-              <button type="button"><%= link_to "Back to Events", "/events" %></button>
-              <button type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></button>
             </div>
+        <button class="button" type="button"><%= link_to "Back to Events", "/events" %>
+        <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+      </div>
+    </div>
+</div>
           </div>
       </div>
     </div>
