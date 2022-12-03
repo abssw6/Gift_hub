@@ -6,25 +6,42 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
+require "open-uri"
 
 Event.destroy_all
 User.destroy_all
 Gift.destroy_all
-# Wishlist.destroy_all
+Wishlist.destroy_all
 CATEGORIES = ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
+
+
+puts "Creating test user"
+User.create!(
+  email: "koji@lewagon.com",
+  password: "hello123"
+)
+puts "done"
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift and 30 gifts"
 
+
+
 gifts = []
- 5.times do
-  gifts << Gift.create(
+ 20.times do
+  file = URI.open(Faker::LoremFlickr.image(search_terms: ['product']))
+  i = 1
+  gift = Gift.create(
     name: Faker::Commerce.brand,
     gift_type: Faker::Commerce.department,
     rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
     description: Faker::Commerce.product_name,
     link: Faker::Internet.url
   )
+  gift.photo.attach(io: file, filename:"#{i}_image.jpg", content_type: "image/jpg")
+    gift.save!
 
+    gifts << gift
+    i += 1
 end
 
 10.times do
@@ -51,12 +68,12 @@ end
     Wishlist.create(
       name: "Hello World",
       event: event_1,
-      gifts: gifts
+      gifts: gifts.sample(5)
     )
     Wishlist.create(
       name: "Hello World",
       event: event_2,
-      gifts: gifts
+      gifts: gifts.sample(5)
     )
 end
 puts "Done"

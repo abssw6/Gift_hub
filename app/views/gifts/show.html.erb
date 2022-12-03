@@ -2,6 +2,7 @@
   <div class="col-12 col-lg-3">
     <div class="card text-center align-self-center border-0">
       <p>Name: <%= @gift.name %></p>
+      <%= cl_image_tag @gift.photo.key, height: 300, width: 400, crop: :fit %>
       <p>Description: <%= @gift.description %></p>
       <p>Price: £<%= @gift.rrp %></p>
       <p>Buy it here: <%= @gift.link %></p>
