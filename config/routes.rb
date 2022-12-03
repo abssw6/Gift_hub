@@ -19,6 +19,10 @@ Rails.application.routes.draw do
 
   resources :gifts_wishlists, only: :update
 
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
   resources :gifts, only: :show do
       member do
         get 'commit_gift'
