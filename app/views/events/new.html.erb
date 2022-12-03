@@ -1,9 +1,11 @@
-<div class="container d-flex justify-content-center my-5">
-  <div class="card col-12 col-lg-6">
-    <div class="text-center align-self-center border-0" style="">
-      <div class="Event Form">
-        <h3>Create your Event:</h3>
-        <%= render "shared/form", event: @event %>
+ <div class="background" style="height: 80vh; background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1525373612132-b3e820b87cea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80)">
+  <div class="container d-flex justify-content-center my-5" id="create-card">
+    <div class="card col-12 col-lg-6">
+      <div class="text-center align-self-center border-0" style="">
+        <div class="Event Form">
+          <h3>Create your Event:</h3>
+          <%= render "shared/form", event: @event %>
+        </div>
       </div>
     </div>
   </div>

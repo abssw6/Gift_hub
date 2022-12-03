@@ -2,12 +2,19 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1665686374221-1901faa9f3ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1513201099705-a9746e1e201f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2148&q=80);
   background-repeat: no-repeat;
-  height: 80vh;
+  height: 90vh;
   .container {
     text-align: center;
+    margin-top: 160px;
   }
+}
+
+.btn-warning {
+  padding: 25px;
+  font-size: 22px;
+  border-radius: 5px;
 }
 
 .banner h1 {
@@ -82,13 +89,20 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+#create-card {
+  padding: 170px;
+}
+
+#event-show {
+  padding: 70px;
+}
+
 #event-card {
   margin-top: 25px;
 }
 
 .section-title-one {
   text-align: center;
-  width: 100%;
   margin: 50px;
   position: relative;
   z-index: 5;
