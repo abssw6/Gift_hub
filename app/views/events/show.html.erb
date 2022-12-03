@@ -22,11 +22,9 @@
 
 
           <div class="card-text">
-              <%= simple_form_for [@event, Invitation.new] do |form| %>
-                <%= form.input :user, as: :select, collection: @users %>
-                <%= button_tag(type: 'submit', class: "button") do %>
-            Create Invitation
-                <% end %>
+              <%= simple_form_for [@event, Invitation.new] do |f| %>
+                <%= f.input :user, as: :select, collection: @users %>
+                <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
               <% end %>
 
             <div class="card text-center align-self-center">

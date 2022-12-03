@@ -2,18 +2,16 @@
   <div class="Upload Form">
     <div class="card-body">
       <div class="container">
-        <%= simple_form_for(@event) do |f| %>
+        <%= simple_form_for (@event) do |f| %>
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <% end %>
           <%= f.input :category %>
           <%= f.input :title %>
           <%= f.input :event_date %>
-          <%= button_tag(type: 'submit', class: "button") do %>
-            Create Event
-          <% end %>
+          <%= f.button :button, "Create an Event", class: "button" %>
         <% end %>
       </div>
-      </div>
-</div>
+    </div>
+  </div>
 </div>

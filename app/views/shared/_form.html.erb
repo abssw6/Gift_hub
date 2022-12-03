@@ -3,6 +3,6 @@
     <%= form.input :title, label: "Event Title" %>
     <%= form.input :category, label: "Category", collection: Event::CATEGORIES %>
     <%= form.input :event_date, label: "Event Date", start_year: Date.today.year %>
-    <%= form.button :submit, class: "buttons" %>
+    <%= form.button :submit, class: "button" %>
   <% end %>
 </div>
