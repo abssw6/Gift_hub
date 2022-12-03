@@ -52,6 +52,8 @@ end
 n = 1
 
 10.times do
+
+
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -60,13 +62,13 @@ n = 1
   )
 
     event_1 = Event.create(
-      event_date: Faker::Date.forward(days: (n+2)),
+      event_date: Faker::Date.forward(days: (n +2)),
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
     )
     event_2 = Event.create(
-      event_date: Faker::Date.forward(days: (n+3)),
+      event_date: Faker::Date.forward(days: (n +3)),
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
@@ -82,7 +84,7 @@ n = 1
       event: event_2,
       gifts: gifts.sample(5)
     )
-  n = +4
+  n = n + 4
 end
 
 puts "Done"
