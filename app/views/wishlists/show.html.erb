@@ -33,6 +33,7 @@
               <br>
                 <thead>
                   <tr>
+                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Link</th>
@@ -44,6 +45,7 @@
                 <tbody>
               <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
               <tr class="card-body">
+                  <td><%= image_tag gift_wishlist.gift.photo, size:  "50x50" %></td>
                   <td> <%= gift_wishlist.gift.name %></td>
                   <td> <%= gift_wishlist.gift.description %></td>
                   <td> <%= gift_wishlist.gift.link %></td>

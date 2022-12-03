@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 require "open-uri"
+require "nokogiri"
 
 Event.destroy_all
 User.destroy_all
@@ -24,25 +25,31 @@ puts "done"
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift and 30 gifts"
 
-
-
 gifts = []
- 20.times do
-  file = URI.open(Faker::LoremFlickr.image(search_terms: ['product']))
-  i = 1
-  gift = Gift.create(
+i = 1
+
+20.times do
+  product_name = Faker::Commerce.product_name
+  url = "https://www.google.com/search?q=#{product_name}&tbm=isch&ved=2ahUKEwiqyv68td37AhWhTaQEHQ63D8IQ2-cCegQIABAA&oq=Lightweight+Paper&gs_lcp=CgNpbWcQAzIECCMQJzIECCMQJzIFCAAQgAQyBQgAEIAEMgYIABAIEB4yBggAEAgQHjIHCAAQgAQQGDIHCAAQgAQQGDIHCAAQgAQQGDIHCAAQgAQQGDoECAAQHlDFBFi8CWCvD2gAcAB4AIABQIgBwwKSAQE2mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=vjyLY6rzFaGbkdUPju6-kAw&bih=796&biw=1440"
+  html_file = URI.open(url)
+  html_doc = Nokogiri::HTML(html_file)
+  image_url = html_doc.search("body img")[10].attribute("src").value
+
+  gift = Gift.new(
     name: Faker::Commerce.brand,
     gift_type: Faker::Commerce.department,
     rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
-    description: Faker::Commerce.product_name,
+    description: product_name,
     link: Faker::Internet.url
   )
-  gift.photo.attach(io: file, filename:"#{i}_image.jpg", content_type: "image/jpg")
-    gift.save!
+  gift.photo.attach(io: URI.open(image_url), filename:"#{i}_image.jpg", content_type: "image/jpg")
+  gift.save!
 
-    gifts << gift
-    i += 1
+  gifts << gift
+  i += 1
 end
+
+n = 1
 
 10.times do
   user = User.create(
@@ -53,13 +60,13 @@ end
   )
 
     event_1 = Event.create(
-      event_date: Faker::Date.in_date_period,
+      event_date: Faker::Date.forward(days: (n+2)),
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
     )
     event_2 = Event.create(
-      event_date: Faker::Date.in_date_period,
+      event_date: Faker::Date.forward(days: (n+3)),
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
@@ -75,7 +82,9 @@ end
       event: event_2,
       gifts: gifts.sample(5)
     )
+  n = +1
 end
+
 puts "Done"
 
 # puts "Creating 30 Gifts"
