@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :gifts_wishlists, only: [:create]
   end
 
+  resources :usercommits, only: [:destroy]
+
   resources :gifts_wishlists, only: :update
 
   resources :gifts, only: :show do
