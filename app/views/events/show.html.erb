@@ -23,11 +23,14 @@
           <div class="card-text">
               <%= simple_form_for [@event, Invitation.new] do |f| %>
                 <%= f.input :user, as: :select, collection: @users %>
-                <div class="my-2">
+                <div class="d-flex justify-content-around my-2">
                 <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
-                </div>
-
               <% end %>
+              <button class="button" type="button"><%= link_to "OPEN CHAT", chatroom_path %>
+
+
+          </div>
+
 
 
             <%# <div class="card text-center align-self-center">
