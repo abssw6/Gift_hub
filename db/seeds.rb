@@ -15,6 +15,7 @@ Gift.destroy_all
 Wishlist.destroy_all
 CATEGORIES = ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
 
+puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
 
 puts "Creating test user"
 User.create!(
@@ -44,11 +45,13 @@ i = 1
     description: product_name,
     link: Faker::Internet.url
   )
+
   gift.photo.attach(io: URI.open(image_url), filename:"#{i}_image.jpg", content_type: "image/jpg")
   gift.save!
 
   gifts << gift
   i += 1
+
 end
 
 n = 1
@@ -69,6 +72,10 @@ n = 1
       title: Faker::Kpop.iii_groups,
       user: user
     )
+    chatroom = Chatroom.create(
+      event: event_1
+    )
+
     event_2 = Event.create(
       event_date: Faker::Date.forward(days: (n +3)),
       category: CATEGORIES.sample,

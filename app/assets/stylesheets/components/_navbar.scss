@@ -1,4 +1,7 @@
-.navbar-lewagon {
+.navbar {
+  width: 100%;
+  left: 0%;
+  margin: 0;
   justify-content: space-between;
   background: white;
 }
@@ -10,3 +13,7 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+// body {
+//   margin: 0;
+// }

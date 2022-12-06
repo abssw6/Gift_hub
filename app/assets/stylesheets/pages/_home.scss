@@ -1,3 +1,16 @@
+h1, h2, h3, h4, h5, p, a {
+  font-family: 'Quicksand' serif;
+}
+
+h2 {
+  font-size: 45px;
+}
+
+p {
+  font-size: 28px;
+  font-family: 'Quicksand' serif;
+}
+
 .banner {
   background-size: cover;
   background-position: center;
@@ -26,6 +39,7 @@
 }
 
 .banner p {
+  font-family: 'Quicksand' serif;
   font-size: 20px;
   color: white;
   opacity: .7;
@@ -207,4 +221,12 @@
 }
 .accordion-style-two .accordion .card .card-body .text {
   color: var(--dark-3);
+}
+
+#footer {
+  position: bottom;
+  left:0;
+  bottom:0;
+  height: 10%;
+  width:100%;
 }

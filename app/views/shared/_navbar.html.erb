@@ -1,22 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "2.png" %>
-    <% end %>
-
-  <%= form_with url: events_path, method: :get, class: "nav-bar-form d-flex" do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find an existing event"
-  %>
-  <%= submit_tag "Search", class: "buttons" %>
-  <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "2.png" %>  <h4>GiftHub</h4>
+      <% end %>
+        <%= form_with url: events_path, method: :get, class: "nav-bar-form d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find an existing event" %>
+        <%= submit_tag "Search", class: "buttons" %>
+        <% end %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
@@ -26,9 +22,6 @@
             <li class="nav-item">
               <%= link_to "New Event", "/events/new", class: "nav-link" %>
             </li>
-          <%# <li class="nav-item">
-            <%= link_to "New WishList", "/wishlist/new", class: "nav-link" %>
-          <%# </li> %>
           <li class="nav-item dropdown">
           <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.nickname %></a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
