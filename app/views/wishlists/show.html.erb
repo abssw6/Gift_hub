@@ -16,7 +16,9 @@
       <% end %>
       </div>
       </div>
-
+      <% if @wishlist.gifts_wishlists.empty?%>
+              <h2> Missing Gifts </h2>
+              <% else %>
       <div class="tab-pane card-body" id="wish-details" role="tabpanel">
             <h5 class="card-title">EVENT: <%= @wishlist.name.upcase %></h5>
             <br>
@@ -60,6 +62,7 @@
                 </table>
               </div>
             </div>
+            <% end %>
         <div class="d-flex justify-content-around">
         <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %>
         <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
