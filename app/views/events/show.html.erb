@@ -1,79 +1,59 @@
-<div class="d-flex justify-content-center my-5">
-  <div class="col-12 col-lg-6">
-    <div class="card text-center align-items-center">
-      <%# <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="true" href="#event-details" data-toggle="tab" role="tab">Event Details</a>
-          </li>
-          <%# <li class="nav-item">
-            <a class="nav-link" href="#wish-details" data-toggle="tab" role="tab">Wish List</a>
-          </li> %>
-
-
-      <div class="col-md-9">
-        <div class="tab-content">
-          <div class="tab-pane card-body active" id="event-details" role="tabpanel">
-            <h5 class="card-title">Title: <%= @event.title %></h5>
-            <p class="card-text">Category: <%= @event.category %></p>
-            <p class="card-text">Organiser: <%= @event.user.first_name %></p>
-            <p class="card-text">Date: <%= @event.event_date.strftime('%A, %d-%m-%Y') %></p>
-
-
-          <div class="card-text">
-              <%= simple_form_for [@event, Invitation.new] do |f| %>
-                <%= f.input :user, as: :select, collection: @users %>
-                <div class="d-flex justify-content-around my-2">
-                <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
-              <% end %>
-              <button class="button" type="button"><%= link_to "OPEN CHAT", chatroom_path %>
-
-
-          </div>
-
-
-
-            <%# <div class="card text-center align-self-center">
-              <h5>Invited Users:</h5>
-              <%# <p><% @invitees.each do |invitee| %>
-              <%# <p> <%= invitee.user.first_name </p> %>
-              <%# <% end %>
-            <%# </div> %>
-
-               <h5 class="card-title">Title: <%= @wishlist.name %></h5>
-
-          <div class="card-1 card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
-            <table class="table table-hover" id="table">
-              <br>
-                <thead>
-                  <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Email</th>
-                  </tr>
-                </thead>
-                <tbody>
-              <% @invitees.each do |invitee| %>
-              <tr class="card-body">
-                  <td> <%= invitee.user.first_name %></td>
-                  <td> <%= invitee.user.last_name %></td>
-                  <td> <%= invitee.user.email %></td>
-                    </td>
-                </tr>
-              <% end %>
-              </table>
+<div class="background" style="height: 80vh; background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1525373612132-b3e820b87cea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80)">
+  <div class="d-flex justify-content-center my-5" id="event-show">
+    <div class="col-12 col-lg-6">
+      <div class="card text-center align-items-center">
+        <div class="col-md-9">
+          <div class="tab-content">
+            <div class="tab-pane card-body active" id="event-details" role="tabpanel">
+              <div class="card">
+                <h5 class="card-title">Event: <%= @event.title.upcase %></h5>
+                <p class="card-text">Category: <%= @event.category.upcase %></p>
+                <p class="card-text">Organiser: <%= @event.user.first_name.upcase %></p>
+                <p class="card-text">Date: <%= @event.event_date.strftime('%A, %d-%m-%Y').upcase %></p>
               </div>
-            </div>
-
-            <%# <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %>
-            <div class="d-flex justify-content-around my-2">
-            <button class="button" type="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %>
-            <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-            </div>
-
+            <br>
+            <div class="card-text">
+                <%= simple_form_for [@event, Invitation.new] do |f| %>
+                  <%= f.input :user, as: :select, label: "Invite Users", collection: @users %>
+                  <div class="my-2">
+                  <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
+                  </div>
+              <% end %>
+            <h5 class="card-title">Wishlist for: <%= @wishlist.name %></h5>
+            <% if @event.invitations.empty?%>
+              <h2> Add some guests </h2>
+              <% else %>
+            <div class="card-1 card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+              <table class="table table-hover" id="table">
+                <br>
+                  <thead>
+                    <tr>
+                      <th scope="col">First Name</th>
+                      <th scope="col">Last Name</th>
+                      <th scope="col">Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                <% @invitees.each do |invitee| %>
+                <tr class="card-body">
+                    <td> <%= invitee.user.first_name %></td>
+                    <td> <%= invitee.user.last_name %></td>
+                    <td> <%= invitee.user.email %></td>
+                      </td>
+                  </tr>
+                <% end %>
+                </table>
+              </div>
+                 <% end %>
+              </div>
+                <div class="d-flex justify-content-around my-2">
+                  <button class="button" type="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %></button>
+                  <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></button>
+                </div>
+              </div>
           </div>
         </div>
       </div>
+      </div>
     </div>
-    </div>
-  </div>
+</div>

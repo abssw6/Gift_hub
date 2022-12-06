@@ -29,9 +29,3 @@ disconnect() {
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 }
-
-
-
-// received: data => this.messagesTarget.insertAdjacentHTML("beforeend", data)
-
-// received: data => this.#insertMessageAndScrollDown(data)
