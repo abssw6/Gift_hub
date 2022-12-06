@@ -13,7 +13,7 @@ Gift.destroy_all
 # Wishlist.destroy_all
 CATEGORIES = ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
 
-puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift and 30 gifts"
+puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
 
 gifts = []
  5.times do
@@ -24,7 +24,6 @@ gifts = []
     description: Faker::Commerce.product_name,
     link: Faker::Internet.url
   )
-
 end
 
 10.times do
@@ -41,6 +40,10 @@ end
       title: Faker::Kpop.iii_groups,
       user: user
     )
+    chatroom = Chatroom.create(
+      event: event_1
+    )
+
     event_2 = Event.create(
       event_date: Faker::Date.in_date_period,
       category: CATEGORIES.sample,

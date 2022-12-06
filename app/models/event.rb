@@ -11,9 +11,9 @@ class Event < ApplicationRecord
 
   has_many :invitations
 
-  after_create :create_chatroom
+  # after_create :create_chatroom
 
-  def create_chatroom
-    self.chatrooms.create!( name: "Chatroom", user_id: self.id)
-  end
+  # def create_chatroom
+  #   self.chatroom.create!(name: "Chatroom", user_id: self.id)
+  # end
 end
