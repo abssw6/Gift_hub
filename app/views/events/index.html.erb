@@ -6,10 +6,10 @@
         <div class="day">
             <%= date.day %>
               <% @events.each do |event| %>
-              <h5 class="card-title">
-              <%= link_to event.title, event if event.event_date == date %>
-              </h5>
-                <% end %>
+                <h5 class="card-title">
+                <%= link_to event.title, event if event.event_date == date %>
+                </h5>
+              <% end %>
         </div>
         <% end %>
     </div>
