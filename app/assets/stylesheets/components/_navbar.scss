@@ -10,10 +10,18 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
+
+.navbar-brand{
+  width: 80px;
+  height: 80px;
 }
 
+// .navbar-brand > img {
+//   width: 100%;
+// }
 // body {
 //   margin: 0;
 // }
