@@ -2,7 +2,8 @@
   <%= simple_form_for event, html: {class:"test"} do |form| %>
     <%= form.input :title, label: "Event Title" %>
     <%= form.input :category, label: "Category", collection: Event::CATEGORIES %>
-    <%= form.input :event_date, label: "Event Date", start_year: Date.today.year %>
+    <%# <%= form.input :event_date, label: "Event Date", start_year: Date.today.year %>
+    <%= form.input :event_date, as: :datetime, html5: true %>
     <%= form.button :submit, class: "button" %>
   <% end %>
 </div>
