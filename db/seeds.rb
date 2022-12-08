@@ -74,6 +74,7 @@ n = 1
     )
     chatroom = Chatroom.create(
       event: event_1
+      event: event_2
     )
 
     event_2 = Event.create(
