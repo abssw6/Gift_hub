@@ -21,6 +21,7 @@
       <% if @wishlist.gifts_wishlists.empty?%>
               <h2> Missing Gifts </h2>
               <% else %>
+
       <div class="card text-center align-self-center border-0" style="background-color:#ddcecde8">
         <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
           <%= image_tag gift_wishlist.gift.photo, size:  "150x150" %>
