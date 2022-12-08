@@ -25,6 +25,8 @@ class EventsController < ApplicationController
     if @event.save!
       @wishlist = Wishlist.create(name: @event.title, event_id: @event.id)
       redirect_to wishlist_path(@wishlist)
+      @chatroom = Chatroom.create(name: @event.title, event_id: @event.id)
+      redirect_to chatroom_path(@chatroom)
     else
       render 'event/show', status: :unprocessable_entity
     end
@@ -44,6 +46,7 @@ class EventsController < ApplicationController
     @users = User.all.map { |user| "#{user.first_name} #{user.last_name}" }
     @wishlist = Wishlist.where(event_id: @event.id).first
     @invitees = Invitation.where(event_id: @event.id)
+    @chatroom = @event.chatroom
   end
 
   def destroy
