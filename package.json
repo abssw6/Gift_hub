@@ -7,6 +7,9 @@
     "@popperjs/core": "^2.11.6",
     "@rails/actioncable": "^7.0.4",
     "bootstrap": "^5.2.2",
+    "jquery": "^3.6.1",
+    "popper": "^1.0.1",
+    "select2": "^4.1.0-rc.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0"
   },

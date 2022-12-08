@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center my-5">
+<div class="d-flex justify-content-center my-5" data-controller="select">
   <div class="col-12 col-lg-6">
     <div class="card text-center">
 
@@ -6,8 +6,10 @@
         <div class="card-body">
         <% if current_user == @event.user %>
           <h5 class="card-title">Add some gifts to your wishlist</h5>
+
+
             <%= simple_form_for ([@wishlist, GiftsWishlist.new]) do |f|%>
-              <%= f.input :gift_id, collection: Gift.all %>
+              <%= f.input :gift_id, collection: Gift.all, input_html: { class: 'select2', data: { select_target: "select2"} }  %>
 
               <%= button_tag(type: 'submit', class: "button") do %>
                   Add to Wishlist
@@ -19,49 +21,27 @@
       <% if @wishlist.gifts_wishlists.empty?%>
               <h2> Missing Gifts </h2>
               <% else %>
-      <div class="tab-pane card-body" id="wish-details" role="tabpanel">
-            <h5 class="card-title">EVENT: <%= @wishlist.name.upcase %></h5>
-            <br>
-          <div class="card-1 card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
-            <table class="table table-hover" id="table">
-              <br>
-                <thead>
-                  <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Link</th>
-                    <th scope="col"></th>
-                    <th scope="col">Commit to Buy?</th>
-                  </tr>
-                </thead>
-                <tbody>
-              <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
-                <tr class="card-body">
-                  <td><%= cl_image_tag gift_wishlist.gift.photo.key, size:  "50x50" %></td>
-                  <td> <%= gift_wishlist.gift.name %></td>
-                  <td> <%= gift_wishlist.gift.description %></td>
-                  <td> <%= gift_wishlist.gift.link %></td>
-                    <td><%=link_to "View Gift",  gift_path(gift_wishlist.gift) %></td>
-                    <td>
-                      <% if gift_wishlist.gift.usercommits.empty? %>
-                        <%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
-                          <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
-                          <%= f.hidden_field :is_commited, value: true %>
-                          <%= f.submit "I'll get this", class: "small-button", disable_with: true %>
-                        <% end %>
-                      <% else %>
-                        <%= link_to "Not Getting",
-                          usercommit_path(Usercommit.where(user: current_user, gift: gift_wishlist.gift).first),
-                          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-                        %>
-                      <% end %>
-                    </td>
-                <% end %>
-                </tr>
-                </table>
-              </div>
-            </div>
+      <div class="card text-center align-self-center border-0" style="background-color:#ddcecde8">
+        <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
+          <%= image_tag gift_wishlist.gift.photo, size:  "150x150" %>
+          <h3><%= gift_wishlist.gift.name %></h3>
+          <p><%= gift_wishlist.gift.description %></p>
+          <a><%= gift_wishlist.gift.link %></a>
+          <%=link_to "View Gift",  gift_path(gift_wishlist.gift) %>
+            <% if gift_wishlist.gift.usercommits.empty? %>
+              <%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
+                <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
+                <%= f.hidden_field :is_commited, value: true %>
+                <%= f.submit "I'll get this", class: "small-button", disable_with: true %>
+              <% end %>
+            <% else %>
+              <%= link_to "Not Getting",
+                usercommit_path(Usercommit.where(user: current_user, gift: gift_wishlist.gift).first),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+              %>
+            <% end %>
+          <% end %>
+      </div>
             <% end %>
         <div class="d-flex justify-content-around">
         <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %>
