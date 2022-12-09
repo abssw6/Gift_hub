@@ -9,11 +9,12 @@ require 'faker'
 require "open-uri"
 require "nokogiri"
 
+Chatroom.destroy_all
 Event.destroy_all
 User.destroy_all
 Gift.destroy_all
 Wishlist.destroy_all
-CATEGORIES = ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
+CATEGORIES = ["Birthday", "Wedding", "Funeral", "Breakup"]
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
 
@@ -72,23 +73,25 @@ n = 1
       title: Faker::Kpop.iii_groups,
       user: user
     )
-    chatroom = Chatroom.create(
+    p event_1
+
+    chatroom = Chatroom.create!(
       event: event_1
     )
 
-    event_2 = Event.create(
+    event_2 = Event.create!(
       event_date: Faker::Date.forward(days: (n +3)),
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
     )
-
+    p event_2
     Wishlist.create(
       name: "Hello World",
       event: event_1,
       gifts: gifts.sample(5)
     )
-    Wishlist.create(
+    Wishlist.create!(
       name: "Hello World",
       event: event_2,
       gifts: gifts.sample(5)
