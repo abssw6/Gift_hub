@@ -14,6 +14,21 @@
     border-collapse: collapse;
   }
 
+  div.calendar-heading a {
+    color: black;
+    font-size: 17px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #f48535;
+  }
+
   th {
     padding: 6px;
     border-bottom: 2px solid rgb(221, 221, 221);
@@ -51,6 +66,10 @@
     color: white;
     }
 
+    td.day.wday-5.today.start-date.current-month {
+      color: orange;
+  }
+
   .wday-0 {}
   .wday-1 {}
   .wday-2 {}
@@ -60,7 +79,7 @@
   .wday-6 {}
 
   .today {
-    background-image: linear-gradient(-222deg, #ff9205, #f48535);
+    // background-image: linear-gradient(-222deg, #ff9205, #f48535);
   }
 
   .past {}
