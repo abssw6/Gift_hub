@@ -27,7 +27,6 @@
               <%= image_tag gift_wishlist.gift.photo, size:  "150x150" %>
             </div>
             <h3><%= gift_wishlist.gift.name %></h3>
-            <p><%= gift_wishlist.gift.description %></p>
             <a><%= gift_wishlist.gift.link %></a>
             <%=link_to "View Gift",  gift_path(gift_wishlist.gift) %>
               <% if gift_wishlist.gift.usercommits.empty? %>
