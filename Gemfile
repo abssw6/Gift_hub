@@ -50,6 +50,7 @@ gem 'devise_invitable', '~> 2.0.0'
 gem "sassc-rails"
 gem 'bootstrap', '~> 5.2.2'
 gem 'faker'
+gem 'gravtastic'
 gem "cloudinary"
 gem 'jquery-rails'
 
