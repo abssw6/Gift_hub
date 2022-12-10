@@ -12,10 +12,11 @@
                 <p class="card-text">Date: <%= @event.event_date.strftime('%A, %d-%m-%Y').upcase %></p>
               </div>
             <br>
-            <div class="card-text">
+            <div class="card-text col-12">
                 <%= simple_form_for [@event, Invitation.new] do |f| %>
-                <div class="d-flex">
+                <div class="d-flex col-8">
                   <%= f.input :user, as: :select, label: "Invite people", collection: @users %>
+                  <div class="d-flex col-4">
                     <%= button_tag type: :submit do %>
                       <i class="fa-solid fa-envelope-circle-check"> </i>
                     <% end %>
