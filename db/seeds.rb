@@ -10,12 +10,13 @@ require "open-uri"
 require "nokogiri"
 
 Chatroom.destroy_all
+Usercommit.destroy_all
 Event.destroy_all
 User.destroy_all
 Gift.destroy_all
 
 Wishlist.destroy_all
-CATEGORIES = ["Birthday", "Wedding", "Funeral", "Breakup"]
+CATEGORIES = ["Birthday", "Wedding", "Funeral", "Breakup", "Milestone"]
 
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
