@@ -14,6 +14,21 @@
     border-collapse: collapse;
   }
 
+  div.calendar-heading a {
+    color: black;
+    font-size: 17px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #f48535;
+  }
+
   th {
     padding: 6px;
     border-bottom: 2px solid rgb(221, 221, 221);
