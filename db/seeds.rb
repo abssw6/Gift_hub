@@ -68,7 +68,7 @@ n = 1
   )
 
     event_1 = Event.create(
-      event_date: Faker::Date.forward(days: (n +2)),
+      event_date: Faker::Date.forward(days: (n + 2)),
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
@@ -80,7 +80,7 @@ n = 1
     )
 
     event_2 = Event.create!(
-      event_date: Faker::Date.forward(days: (n +3)),
+      event_date: Faker::Date.forward(days: (n + 3)),
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
