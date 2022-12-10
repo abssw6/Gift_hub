@@ -86,6 +86,11 @@ n = 1
       user: user
     )
     p event_2
+
+    chatroom = Chatroom.create!(
+      event: event_2
+    )
+
     Wishlist.create(
       name: "Hello World",
       event: event_1,
