@@ -1,6 +1,10 @@
 a {
   text-decoration: none;
+
   color: white;
+
+  font-weight: bold;
+
 }
 
 .button {
@@ -27,6 +31,7 @@ a {
   touch-action: manipulation;
   vertical-align: bottom;
   width: 190px;
+
 }
 
 .button:hover {

@@ -13,8 +13,10 @@ Chatroom.destroy_all
 Event.destroy_all
 User.destroy_all
 Gift.destroy_all
+
 Wishlist.destroy_all
 CATEGORIES = ["Birthday", "Wedding", "Funeral", "Breakup"]
+
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
 
@@ -26,6 +28,8 @@ User.create!(
   last_name: "Samuels",
   nickname: "KJ"
 )
+
+
 puts "done"
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift and 30 gifts"
@@ -33,27 +37,39 @@ puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift and 3
 gifts = []
 i = 1
 
-20.times do
-  product_name = Faker::Commerce.product_name
-  url = "https://www.google.com/search?q=#{product_name}&tbm=isch&ved=2ahUKEwiqyv68td37AhWhTaQEHQ63D8IQ2-cCegQIABAA&oq=Lightweight+Paper&gs_lcp=CgNpbWcQAzIECCMQJzIECCMQJzIFCAAQgAQyBQgAEIAEMgYIABAIEB4yBggAEAgQHjIHCAAQgAQQGDIHCAAQgAQQGDIHCAAQgAQQGDIHCAAQgAQQGDoECAAQHlDFBFi8CWCvD2gAcAB4AIABQIgBwwKSAQE2mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=vjyLY6rzFaGbkdUPju6-kAw&bih=796&biw=1440"
-  html_file = URI.open(url)
-  html_doc = Nokogiri::HTML(html_file)
-  image_url = html_doc.search("body img")[10].attribute("src").value
+# create an hash of items that we want to show and use that array
+PRODUCTS = {
+  Apple: ["Macbook", "Iphone", "Ipad", "Watch"],
+  Beats: ["Earphones", "Headphones"],
+  Microsoft: ["Surface Pro", "Surface Book"],
+  Sonos: ["Sub Mini"],
+  Canon: ["Camera"],
+  Amazon: ["Tablet"]
+}
 
-  gift = Gift.new(
-    name: Faker::Commerce.brand,
-    gift_type: Faker::Commerce.department,
-    rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
-    description: product_name,
-    link: Faker::Internet.url
-  )
+PRODUCTS.keys.each do |company|
+  products = PRODUCTS[company]
+  products.each do |product|
+    product_name = product
+    url = "https://www.google.com/search?q=#{product_name}&tbm=isch&ved=2ahUKEwiqyv68td37AhWhTaQEHQ63D8IQ2-cCegQIABAA&oq=Lightweight+Paper&gs_lcp=CgNpbWcQAzIECCMQJzIECCMQJzIFCAAQgAQyBQgAEIAEMgYIABAIEB4yBggAEAgQHjIHCAAQgAQQGDIHCAAQgAQQGDIHCAAQgAQQGDIHCAAQgAQQGDoECAAQHlDFBFi8CWCvD2gAcAB4AIABQIgBwwKSAQE2mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=vjyLY6rzFaGbkdUPju6-kAw&bih=796&biw=1440"
+    html_file = URI.open(url)
+    html_doc = Nokogiri::HTML(html_file)
+    image_url = html_doc.search("body img")[10].attribute("src").value
 
-  gift.photo.attach(io: URI.open(image_url), filename:"#{i}_image.jpg", content_type: "image/jpg")
-  gift.save!
+    gift = Gift.new(
+      name: company,
+      gift_type: "Tech",
+      rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
+      description: product_name,
+      link: "www.#{company}.com/#{product_name}"
+    )
 
-  gifts << gift
-  i += 1
+    gift.photo.attach(io: URI.open(image_url), filename:"#{i}_image.jpg", content_type: "image/jpg")
+    gift.save!
 
+    gifts << gift
+    i += 1
+  end
 end
 
 n = 1
@@ -62,6 +78,7 @@ n = 1
 
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
+
 
   user = User.create(
     first_name: first_name,
@@ -74,29 +91,31 @@ n = 1
     event_1 = Event.create(
       event_date: Faker::Date.forward(days: (n +2)),
       category: category,
-      title: "#{user.first_name}'s #{category}",
+      title: "#{user.nickname} #{category}",
       user: user
     )
+
     p event_1
 
     chatroom = Chatroom.create!(
-      event: event_1
+      event: event_1,
+      name: event_1.title
     )
 
-    category = CATEGORIES.sample
     event_2 = Event.create!(
       event_date: Faker::Date.forward(days: (n +3)),
       category: category,
-      title: "#{user.first_name}'s #{category}",
+      title: "#{user.nickname} #{category}",
       user: user
     )
     p event_2
 
     chatroom = Chatroom.create!(
-      event: event_2
+      event: event_2,
+      name: event_2.title
     )
 
-    Wishlist.create(
+    Wishlist.create!(
       name: "Hello World",
       event: event_1,
       gifts: gifts.sample(5)
