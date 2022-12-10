@@ -1,5 +1,5 @@
 <div class="background" style="height: 100%; background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1525373612132-b3e820b87cea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80)">
-  <div class="d-flex justify-content-center my-5" id="event-show">
+  <div class="d-flex justify-content-center" id="event-show">
     <div class="col-12 col-lg-6">
       <div class="card text-center align-items-center">
         <div class="col-md-9">
@@ -14,10 +14,15 @@
             <br>
             <div class="card-text">
                 <%= simple_form_for [@event, Invitation.new] do |f| %>
-                  <%= f.input :user, as: :select, label: "Invite Users", collection: @users %>
-                  <div class="d-flex justify-content-around my-1">
-                    <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
-              <% end %>
+                <div class="d-flex">
+                  <%= f.input :user, as: :select, label: "Invite people", collection: @users %>
+                    <%= button_tag type: :submit do %>
+                      <i class="fa-solid fa-envelope-circle-check"> </i>
+                    <% end %>
+                    </div>
+                  <% end %>
+              </div>
+              <div class="d-flex justify-content-around my-1">
               <button class="button" type="button"><%= link_to "Chat", chatroom_path(@chatroom) %> </button>
               </div>
             <h5 class="card-title">Wishlist for: <%= @wishlist.name %></h5>
@@ -31,7 +36,7 @@
                     <tr>
                       <th scope="col">First Name</th>
                       <th scope="col">Last Name</th>
-                      <th scope="col">Email</th>
+                      <th scope="col">Nickname</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -39,7 +44,7 @@
                 <tr class="card-body">
                     <td> <%= invitee.user.first_name %></td>
                     <td> <%= invitee.user.last_name %></td>
-                    <td> <%= invitee.user.email %></td>
+                    <td> <%= invitee.user.nickname %></td>
                       </td>
                   </tr>
                 <% end %>
@@ -49,7 +54,6 @@
               </div>
                 <div class="d-flex justify-content-around my-2">
                   <button class="button" type="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %></button>
-                  <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></button>
                 </div>
               </div>
           </div>
