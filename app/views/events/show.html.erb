@@ -13,13 +13,19 @@
               </div>
             <br>
             <div class="card-text">
-                  <%= simple_form_for [@event, Invitation.new] do |f| %>
-                  <%= f.input :user, as: :select, label: "Invite Users", collection: @users %>
-                <div class="d-flex justify-content-around my-1">
-                    <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
+                <%= simple_form_for [@event, Invitation.new] do |f| %>
+                <div class="d-flex">
+                  <%= f.input :user, as: :select, label: "Invite people", collection: @users %>
+                    <%= button_tag type: :submit do %>
+                      <i class="fa-solid fa-envelope-circle-check"> </i>
                     <% end %>
-                  <div class="button" type="button"><%= link_to "Chat", chatroom_path(@chatroom) %></div>
-                </div>
+                    </div>
+                  <% end %>
+              </div>
+              <div class="d-flex justify-content-around my-1">
+              <button class="button" type="button"><%= link_to "Chat", chatroom_path(@chatroom) %> </button>
+              </div>
+            <h5 class="card-title">Wishlist for: <%= @wishlist.name %></h5>
             <% if @event.invitations.empty?%>
               <h2> Add some guests </h2>
               <% else %>
@@ -30,7 +36,7 @@
                     <tr>
                       <th scope="col">First Name</th>
                       <th scope="col">Last Name</th>
-                      <th scope="col">Email</th>
+                      <th scope="col">Nickname</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -38,7 +44,7 @@
                 <tr class="card-body">
                     <td> <%= invitee.user.first_name %></td>
                     <td> <%= invitee.user.last_name %></td>
-                    <td> <%= invitee.user.email %></td>
+                    <td> <%= invitee.user.nickname %></td>
                       </td>
                   </tr>
                 <% end %>
@@ -47,8 +53,7 @@
                 <% end %>
               </div>
                 <div class="d-flex justify-content-around my-2">
-                  <div class="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %></div>
-                  <div class="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></div>
+                  <button class="button" type="button"><%= link_to "See this Wishlist", wishlist_path(@wishlist) %></button>
                 </div>
               </div>
           </div>
