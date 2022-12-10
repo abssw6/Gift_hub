@@ -74,7 +74,7 @@ n = 1
     event_1 = Event.create(
       event_date: Faker::Date.forward(days: (n +2)),
       category: category,
-      title: "#{user.first_name}'s #{category}",
+      title: "#{user.nickname}'s #{category}",
       user: user
     )
     p event_1
