@@ -92,10 +92,10 @@ n = 1
 
       event_date: Faker::Date.forward(days: (n +2)),
       category: category,
-      title: "#{user.nickname}'s #{category}",
+      title: "#{user.nickname} #{category}",
       user: user
     )
-    
+
     p event_1
 
     chatroom = Chatroom.create!(
@@ -106,7 +106,7 @@ n = 1
     event_2 = Event.create!(
       event_date: Faker::Date.forward(days: (n +3)),
       category: category,
-      title: "#{user.nickname}'s #{category}",
+      title: "#{user.nickname} #{category}",
       user: user
     )
     p event_2
