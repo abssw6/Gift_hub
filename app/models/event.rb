@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  CATEGORIES = ["Birthday", "Wedding", "Babyshower", "Graduation", "Funeral", "Breakup", "No Reason"]
+  CATEGORIES = ["Birthday", "Wedding", "Babyshower", "Graduation", "Breakup", "No Reason"]
   belongs_to :user
   has_one :chatroom
   has_one :wishlist, dependent: :destroy
