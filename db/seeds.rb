@@ -20,7 +20,7 @@ CATEGORIES = ["Birthday", "Wedding", "Funeral", "Breakup"]
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
 
-puts "Creating test user"
+puts "Creating 2 test users"
 User.create!(
   email: "koji@lewagon.com",
   password: "hello123",
@@ -29,6 +29,13 @@ User.create!(
   nickname: "KJ"
 )
 
+User.create!(
+  email: "abs@lewagon.com",
+  password: "hello123",
+  first_name: "Abdul",
+  last_name: "Elmi",
+  nickname: "Abs"
+)
 
 puts "done"
 
@@ -57,7 +64,7 @@ PRODUCTS.keys.each do |company|
     image_url = html_doc.search("body img")[10].attribute("src").value
 
     gift = Gift.new(
-      name: company,
+      name: "#{company} - #{product_name}",
       gift_type: "Tech",
       rrp: Faker::Commerce.price(range: 0..10.0, as_string: true),
       description: product_name,
