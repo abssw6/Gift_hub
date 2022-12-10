@@ -1,10 +1,7 @@
 a {
   text-decoration: none;
-
   color: white;
-
   font-weight: bold;
-
 }
 
 .button {
@@ -18,11 +15,10 @@ a {
   cursor: pointer;
   display: inline-block;
   font-family: Inter, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 700;
   height: 60px;
   line-height: 60px;
-  margin-left: -4px;
   outline: 0;
   text-align: center;
   transition: all .3s cubic-bezier(.05, .03, .35, 1);
@@ -35,7 +31,11 @@ a {
 }
 
 .button:hover {
-  opacity: .7;
+  opacity: .9;
+  color: cadetblue;
+  a {
+    color: cadetblue !important;
+  }
 }
 
 @media screen and (max-width: 1000px) {
