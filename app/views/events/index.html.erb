@@ -1,15 +1,14 @@
 <div class="row">
   <div class="col-8">
-
     <div class="container" id="calendar-body">
-      <%= month_calendar(attribute: :event_date) do |date| %>
+      <%= month_calendar(attribute: :event_date) do |date, events| %>
         <div class="day">
             <%= date.day %>
-              <% @events.each do |event| %>
+            <% @events.each do |event| %>
               <h5 class="card-title">
               <%= link_to event.title, event if event.event_date == date %>
               </h5>
-                <% end %>
+            <% end %>
         </div>
         <% end %>
     </div>
