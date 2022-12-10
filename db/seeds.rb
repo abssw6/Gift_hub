@@ -23,7 +23,8 @@ User.create!(
   email: "koji@lewagon.com",
   password: "hello123",
   first_name: "Koji",
-  last_name: "Samuels"
+  last_name: "Samuels",
+  nickname: "KJ"
 )
 puts "done"
 
@@ -59,18 +60,21 @@ n = 1
 
 10.times do
 
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
 
   user = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    first_name: first_name,
+    last_name: last_name,
+    nickname: "#{first_name[0]}#{last_name[0]}'s",
     email: Faker::Internet.email,
     password: "123456"
   )
-
+  category = CATEGORIES.sample
     event_1 = Event.create(
       event_date: Faker::Date.forward(days: (n +2)),
-      category: CATEGORIES.sample,
-      title: Faker::Kpop.iii_groups,
+      category: category,
+      title: "#{user.first_name}'s #{category}",
       user: user
     )
     p event_1
@@ -79,10 +83,11 @@ n = 1
       event: event_1
     )
 
+    category = CATEGORIES.sample
     event_2 = Event.create!(
       event_date: Faker::Date.forward(days: (n +3)),
-      category: CATEGORIES.sample,
-      title: Faker::Kpop.iii_groups,
+      category: category,
+      title: "#{user.first_name}'s #{category}",
       user: user
     )
     p event_2
