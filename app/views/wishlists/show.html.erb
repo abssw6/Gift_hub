@@ -1,7 +1,8 @@
 <div class="container" data-controller="select">
   <div class="row">
     <div class="col-4">
-      <div class="card"><%= "#{@event.title} for #{}" %>
+      <div class="card text-center"><%= "#{@event.title} for #{@event.user.first_name.upcase}" %>
+        <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %></button>
       </div>
     </div>
   <div class="col-8" style="background-color:##CCDAD1">
@@ -17,33 +18,35 @@
             <% end %>
         </div>
         <% if @wishlist.gifts_wishlists.empty?%>
-              <h2> Missing Gifts </h2>
+              <h2> Add some gifts </h2>
               <% else %>
     <div class="container">
         <div class="row">
           <% @wishlist.gifts_wishlists.each do |gift_wishlist| %>
-          <div class="card col-sm-12 col-md-6 col-lg-4" style="background-color:#CCDAD1">
+          <div class="card col-sm-12 col-md-4 col-lg-4" style="background-color:#ffffff9c" id="gift-card">
             <div class="text-center">
-              <%= image_tag gift_wishlist.gift.photo, size:  "150x150" %>
+              <%= image_tag gift_wishlist.gift.photo, size: "150x150"%>
             </div>
-            <h3><%= gift_wishlist.gift.name %></h3>
-            <a><%= gift_wishlist.gift.link %></a>
-            <%=link_to "View Gift",  gift_path(gift_wishlist.gift) %>
-              <% if gift_wishlist.gift.usercommits.empty? %>
-                <%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
-                  <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
-                  <%= f.hidden_field :is_commited, value: true %>
-                  <div class="text-center">
-                    <%= f.submit "I'll get this", class: "btn btn-warning", disable_with: true %>
-                  </div>
-                <% end %>
+            <br>
+              <div class="text-center">
+                <h3><%= gift_wishlist.gift.name %></h3>
+                <%=link_to "View Gift",  gift_path(gift_wishlist.gift) %>
+              </div>
+                <% if gift_wishlist.gift.usercommits.empty? %>
+                  <%= simple_form_for [@wishlist, @current_user_commit] do |f| %>
+                    <%= f.hidden_field :gift_id, value: gift_wishlist.gift.id  %>
+                    <%= f.hidden_field :is_commited, value: true %>
+                    <div class="text-center">
+                      <%= f.submit "I'll get this", class: "button", disable_with: true %>
+                    </div>
+                  <% end %>
               <% else %>
                 <div class="text-center">
-                  <button class="button" class="btn btn-outline-secondary">
-                  <%= link_to "Cancel Commit",
+                  <div class="button" class="btn-outline-warning">
+                  <%= link_to "Not Getting",
                     usercommit_path(Usercommit.where(user: current_user, gift: gift_wishlist.gift).first),
                     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-                  </button>
+                  </div>
                 </div>
               <% end %>
             </div>
@@ -53,7 +56,6 @@
             <% end %>
         <div class="d-flex justify-content-around">
         <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %></button>
-        <button class="button" type="button"><%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></button>
         </div>
     </div>
   </div>
