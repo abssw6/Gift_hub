@@ -44,7 +44,7 @@
                 <div class="ei_Dot dot_active"></div>
                 <div class="ei_Title"><%= event.event_date.strftime('%A, %d-%m-%Y') %></div>
                 <div class="ei_Copy"><%= event.title %> <%= event.category %></div>
-                <button><%= link_to 'Event Details', event %>
+                <button class="secondary-button"><%= link_to 'Event Details', event %>
               </div>
             <% end %>
           </div>

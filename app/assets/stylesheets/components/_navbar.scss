@@ -3,7 +3,7 @@
   left: 0%;
   margin: 0;
   justify-content: space-between;
-  background: white;
+  background-color: #CCDAD1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -22,6 +22,10 @@
   height: 80px;
 }
 
+a.nav-link {
+  color: #FFAE00;
+  font-weight: bolder;
+}
 // .navbar-brand > img {
 //   width: 100%;
 // }

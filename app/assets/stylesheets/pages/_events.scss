@@ -1,3 +1,7 @@
+body {
+  background-color: #CCDAD1;
+}
+
 .main-container {
   display: flex;
 }
@@ -17,10 +21,6 @@ $light_grey:#A39D9E;
 
 *{
   box-sizing:border-box;
-}
-
-body{
-  background-color: $off_white;
 }
 
 #calendar {
