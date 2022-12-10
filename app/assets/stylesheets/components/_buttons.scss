@@ -1,42 +1,77 @@
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
-
-a:hover {
-  text-decoration: none;
-  color: black;
-}
-
 
 .button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: inline-flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
+  background-color: initial;
+  background-image: linear-gradient(#FFAE00 0, #FFC800 100%);
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: rgba(245, 244, 247, .25) 0 1px 1px inset;
+  color: #fff;
+  margin: 10px;
   cursor: pointer;
-  border: 3px solid;
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-  position: relative;
-  -webkit-user-select: none;
+  display: inline-block;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 60px;
+  line-height: 60px;
+  margin-left: -4px;
+  outline: 0;
+  text-align: center;
+  transition: all .3s cubic-bezier(.05, .03, .35, 1);
   user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: bottom;
+  width: 190px;
+}
+
+.button:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 1000px) {
+  .button {
+    font-size: 14px;
+    height: 55px;
+    line-height: 55px;
+    width: 150px;
+  }
+}
+
+.secondary-button {
+  background-image: linear-gradient(#FFAE00 0, #FFC800 100%);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Montserrat,sans-serif;
+  font-size: .9em;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
   touch-action: manipulation;
 }
 
-.button:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
-}
-
-@media (min-width: 768px) {
-  .button {
-    padding: 0.25em 0.75em;
-  }
+.search-button {
+  background-image: linear-gradient(#FFAE00 0, #FFC800 100%);
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Montserrat,sans-serif;
+  font-size: .9em;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
