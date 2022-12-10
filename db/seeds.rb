@@ -12,7 +12,7 @@ require "nokogiri"
 Event.destroy_all
 User.destroy_all
 Gift.destroy_all
-Wishlist.destroy_all
+# Wishlist.destroy_all
 CATEGORIES = ["Birthday", "Wedding", "Covid", "Funeral", "Breakup"]
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
@@ -59,36 +59,36 @@ n = 1
 10.times do
 
 
-  user = User.create(
+  user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: "123456"
   )
 
-    event_1 = Event.create(
+    event_1 = Event.create!(
       event_date: Faker::Date.forward(days: (n +2)),
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
     )
-    chatroom = Chatroom.create(
+    chatroom = Chatroom.create!(
       event: event_1
     )
 
-    event_2 = Event.create(
+    event_2 = Event.create!(
       event_date: Faker::Date.forward(days: (n +3)),
       category: CATEGORIES.sample,
       title: Faker::Kpop.iii_groups,
       user: user
     )
 
-    Wishlist.create(
+    Wishlist.create!(
       name: "Hello World",
       event: event_1,
       gifts: gifts.sample(5)
     )
-    Wishlist.create(
+    Wishlist.create!(
       name: "Hello World",
       event: event_2,
       gifts: gifts.sample(5)
