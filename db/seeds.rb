@@ -13,8 +13,10 @@ Chatroom.destroy_all
 Event.destroy_all
 User.destroy_all
 Gift.destroy_all
+
 Wishlist.destroy_all
 CATEGORIES = ["Birthday", "Wedding", "Funeral", "Breakup"]
+
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
 
@@ -77,6 +79,7 @@ n = 1
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
 
+
   user = User.create(
     first_name: first_name,
     last_name: last_name,
@@ -86,11 +89,13 @@ n = 1
   )
   category = CATEGORIES.sample
     event_1 = Event.create(
+
       event_date: Faker::Date.forward(days: (n +2)),
       category: category,
       title: "#{user.nickname}'s #{category}",
       user: user
     )
+    
     p event_1
 
     chatroom = Chatroom.create!(
@@ -98,7 +103,6 @@ n = 1
       name: event_1.title
     )
 
-    category = CATEGORIES.sample
     event_2 = Event.create!(
       event_date: Faker::Date.forward(days: (n +3)),
       category: category,
@@ -112,7 +116,7 @@ n = 1
       name: event_2.title
     )
 
-    Wishlist.create(
+    Wishlist.create!(
       name: "Hello World",
       event: event_1,
       gifts: gifts.sample(5)
