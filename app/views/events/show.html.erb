@@ -18,7 +18,7 @@
                   <div class="d-flex justify-content-around my-1">
                     <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
               <% end %>
-              <button class="button" type="button"><%= link_to "CHAT", chatroom_path(@chatroom) %> </button>
+              <button class="button" type="button"><%= link_to "Chat", chatroom_path(@chatroom) %> </button>
               </div>
             <h5 class="card-title">Wishlist for: <%= @wishlist.name %></h5>
             <% if @event.invitations.empty?%>
