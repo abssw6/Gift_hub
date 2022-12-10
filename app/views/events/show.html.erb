@@ -17,7 +17,6 @@
                   <%= f.input :user, as: :select, label: "Invite Users", collection: @users %>
                   <div class="d-flex justify-content-around my-1">
                     <%= button_tag 'Create Invitation', type: :submit, class: 'button' %>
-
               <% end %>
               <button class="button" type="button"><%= link_to "CHAT", chatroom_path(@chatroom) %> </button>
               </div>

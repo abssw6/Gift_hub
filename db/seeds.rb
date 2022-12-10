@@ -89,7 +89,6 @@ n = 1
   )
   category = CATEGORIES.sample
     event_1 = Event.create(
-
       event_date: Faker::Date.forward(days: (n +2)),
       category: category,
       title: "#{user.nickname} #{category}",
