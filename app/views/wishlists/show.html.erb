@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-4">
       <div class="card text-center"><%= "#{@event.title} for #{@event.user.first_name.upcase}" %>
-        <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %></button>
+        <div class="text-center">
+        <button class="button text-center" type="button"><%= link_to "Back to Event", event_path(@event) %></button>
+        </div>
       </div>
     </div>
   <div class="col-8" style="background-color:##CCDAD1">
@@ -42,7 +44,7 @@
                   <% end %>
               <% else %>
                 <div class="text-center">
-                  <div class="button" class="btn-outline-warning">
+                  <div class="button text-center">
                   <%= link_to "Not Getting",
                     usercommit_path(Usercommit.where(user: current_user, gift: gift_wishlist.gift).first),
                     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
