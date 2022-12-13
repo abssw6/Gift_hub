@@ -35,3 +35,17 @@ a.nav-link {
 // body {
 //   margin: 0;
 // }
+
+.nav-bar-form {
+  width: 35%;
+}
+
+.navbar-nav {
+  li:last-child {
+    border-radius: 50%;
+    background-color: #FFAE00 ;
+    a {
+      color: white !important;
+    }
+  }
+}
