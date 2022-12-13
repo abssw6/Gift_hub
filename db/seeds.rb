@@ -17,7 +17,7 @@ User.destroy_all
 Gift.destroy_all
 
 Wishlist.destroy_all
-CATEGORIES = ["Birthday", "Wedding", "Baby Shower", "Breakup", "Graduation", "No Reason"]
+CATEGORIES = ["Birthday", "Wedding", "Babyshower", "Graduation", "Breakup", "No Reason"]
 
 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
