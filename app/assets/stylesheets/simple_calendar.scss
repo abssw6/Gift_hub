@@ -1,10 +1,7 @@
-
-
 .simple-calendar {
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
-    background-color: rgba(0, 0, 0, 0);
     border: 1px solid rgb(221, 221, 221);
     border-collapse: collapse;
     box-sizing: border-box;
@@ -17,6 +14,21 @@
     border-collapse: collapse;
   }
 
+  div.calendar-heading a {
+    color: black;
+    font-size: 17px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #f48535;
+  }
+
   th {
     padding: 6px;
     border-bottom: 2px solid rgb(221, 221, 221);
@@ -25,14 +37,13 @@
     border-right: 1px solid rgb(221, 221, 221);
     border-top: 0px none rgb(51, 51, 51);
     box-sizing: border-box;
-    text-align: left;
+    text-align: center;
   }
 
   td {
     padding: 6px;
     vertical-align: top;
     width: 14%;
-
     border: 1px solid #ddd;
     border-top-color: rgb(221, 221, 221);
     border-top-style: solid;
@@ -50,10 +61,10 @@
 
   .day {
     height: 80px;
-  }
-
-
-
+    text-align: center;
+    background-image: #646464;
+    color: white;
+    }
 
   .wday-0 {}
   .wday-1 {}
@@ -82,4 +93,16 @@
   .current-month {}
 
   .has-events {}
+
+  a {
+    color: white;
+  }
+
+  a:hover {
+    color: #f48535;
+  }
+}
+
+#calendar-body {
+  margin-left: 30px;
 }
