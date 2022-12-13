@@ -9,7 +9,7 @@ require 'faker'
 require "open-uri"
 require "nokogiri"
 
-Messages.destroy_all
+Message.destroy_all
 Chatroom.destroy_all
 Usercommit.destroy_all
 Event.destroy_all
