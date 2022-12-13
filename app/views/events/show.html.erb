@@ -15,7 +15,7 @@
             <div class="card-text">
                 <%= simple_form_for [@event, Invitation.new] do |f| %>
                 <div class="d-flex justify-content-around">
-                  <%= f.input :user, as: :select, label: "Invite people", collection: @users %>
+                  <%= f.input :user, as: :select, label: "Invite people", collection: @users, style:"width: 70%;" %>
                     <div class="d-flex align-self-center" class="rounded-circle" id="invite">
                       <%= button_tag type: :submit do %>
                         <i class="fa-solid fa-envelope-circle-check"></i>
