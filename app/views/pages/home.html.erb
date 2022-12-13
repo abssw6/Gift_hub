@@ -3,7 +3,9 @@
     <h1>Welcome to Gift Hub</h1>
       <h1>The Ultimate Event and Wishlist Platform</h1>
       <br>
+    <div class="secondary-text">
         <h2>Create. Add. Share. Gift Time!</h2>
+    </div>
       <br>
       <button type="button" class="button" style="--bs-btn-padding-y: 25px;"><%= link_to "Create Event!", "/events/new" %></button>
         <br>
@@ -93,8 +95,8 @@
   </div>
 </div>
 <br>
-  <div class="container end-button">
-    <h1>Create your first event and wishlist</h1>
+  <div class="container d-flex" style="flex-direction: column; align-items: center">
+      <h1>Create your first event and wishlist</h1>
     <br>
       <button type="button" class="button" style="--bs-btn-padding-y: 15px;"><%= link_to "Create Event!", "/events/new" %></button>
   </div>
