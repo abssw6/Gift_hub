@@ -14,9 +14,9 @@ $off_white:#fafafa;
 $light_grey:#A39D9E;
 
 #upcoming {
-  margin-right: 200px;
+  // margin-right: 200px;
   margin-top: 20px;
-  max-width: 510px;
+  // max-width: 510px;
 }
 
 *{
@@ -24,26 +24,26 @@ $light_grey:#A39D9E;
 }
 
 #calendar {
-  margin-left: 100px;
-  width: 1200px;
+  // margin-left: 100px;
+  // width: 1200px;
   flex-grow: 1;
 }
 
 .calendar-heading {
   font-weight: bold;
   font-size: 25px;
-  font-family: Helvetica, sans-serif;
+  // font-family: Helvetica, sans-serif;
   a {
    color: #ff9205 !important;
   }
 }
 
 .dark{
-  margin-left: 65px;
+  // margin-left: 65px;
 }
 
 .calendar_dark{
-  width:370px;
+  // width:370px;
   box-shadow: 0px 0px 35px -16px rgba(0,0,0,0.75);
   font-family: 'Roboto', sans-serif;
   padding: 20px 30px;
@@ -51,20 +51,20 @@ $light_grey:#A39D9E;
   display: inline-block;
 }
 
-.calendar_header{
-  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
-}
+// .calendar_header{
+//   border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+// }
 
 .header_copy{
   color:$light_grey;
   font-size:20px;
 }
-.calendar_plan{
-  margin:20px 0 40px;
-}
+// .calendar_plan{
+//   margin:20px 0 40px;
+// }
 .cl_plan{
-  width:100%;
-  height: 190px;
+  // width:100%;
+//   height: 190px;
   background-image: linear-gradient(-222deg, #ff9205, #f48535);
   box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
   padding:30px;
@@ -72,21 +72,24 @@ $light_grey:#A39D9E;
 }
 
 .cl_copy{
-  font-size:20px;
-  margin: 20px 0;
+  font-size:15px;
+  // margin: 20px 0;
   display: inline-block;
 }
 
 .cl_add{
-  display: inline-block;
+  display: flex;
   width: 40px;
   height:40px;
   border-radius:50%;
   background-color: #fff;
   cursor: pointer;
-  margin:0 0 0 65px;
+  // margin:0 0 0 65px;
   color:#c2c2c2;
-  padding: 11px 13px;
+  // padding: 11px 13px;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
 }
 .calendar_events{
   color:$light_grey;
@@ -94,11 +97,15 @@ $light_grey:#A39D9E;
   overflow-y: scroll;
 }
 .ce_title{
-  font-size:14px;
+  font-size:15px;
+}
+
+.cl_title {
+  font-size: 15px;
 }
 
 .event_item{
-  margin: 18px 0;
+  // margin: 18px 0;
   padding:5px;
   cursor: pointer;
   &:hover{
@@ -134,8 +141,12 @@ $light_grey:#A39D9E;
 }
 
 .ei_Copy{
-  font-size:12px;
-  margin-left:27px;
+  font-size:15px;
+  // margin-left:27px;
+}
+
+i.fa-solid.fa-calendar-week {
+  color: black;
 }
 
 .dark{
@@ -145,6 +156,14 @@ $light_grey:#A39D9E;
     color:#fff;
   }
 
+}
+
+h1.header_title {
+  font-size: 30px;
+}
+
+p.header_body {
+  font-size: 15px;
 }
 
 #invite {

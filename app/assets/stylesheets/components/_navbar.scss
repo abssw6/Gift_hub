@@ -4,7 +4,7 @@
   margin: 0;
   justify-content: space-between;
   background-color: #E0F6EF;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -29,6 +29,10 @@ a.nav-link {
   color: #FFAE00;
   font-weight: bolder;
 }
+
+// a.nav-link:hover {
+//   color: white;
+// }
 // .navbar-brand > img {
 //   width: 100%;
 // }
@@ -42,8 +46,8 @@ a.nav-link {
 
 .navbar-nav {
   li:last-child {
-    border-radius: 50%;
-    background-color: #FFAE00 ;
+    border-radius: 4px;
+    background-image: linear-gradient(#FFAE00 0, #FFC800 100%);
     a {
       color: white !important;
     }
