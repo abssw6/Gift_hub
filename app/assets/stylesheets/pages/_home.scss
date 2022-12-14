@@ -6,13 +6,13 @@ h1, h2, h3, h4, h5, p, a {
   font-family: 'Quicksand' serif;
 }
 
-h2 {
-  font-size: 45px;
-}
-
 p {
   font-size: 28px;
   font-family: 'Quicksand' serif;
+}
+
+h2.second-title {
+  font-size: 20px;
 }
 
 .banner {
@@ -24,7 +24,9 @@ p {
   height: 90vh;
   .container {
     text-align: center;
-    margin-top: 160px;
+    margin-right: none;
+    margin-left: none;
+    // margin-top: 160px;
   }
 }
 
@@ -123,10 +125,11 @@ p {
 
 .section-title-one {
   text-align: center;
-  margin: 50px;
+  // margin: 50px;
   position: relative;
   z-index: 5;
   align-content: center;
+  padding: 50px 5px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .section-title-one {
@@ -258,6 +261,7 @@ p {
 }
 
 .secondary-text {
+  color: white;
   a {
     color: #FFAE00 !important;
     }
