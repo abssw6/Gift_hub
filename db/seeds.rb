@@ -149,29 +149,29 @@ n = 1
       name: event_1.title
     )
 
-    event_2 = Event.create!(
-      event_date: Faker::Date.forward(days: (n +4)),
-      category: category,
-      title: "#{user.first_name}'s #{category}",
-      user: user
-    )
-    p event_2
+    # event_2 = Event.create!(
+    #   event_date: Faker::Date.forward(days: (n +4)),
+    #   category: category,
+    #   title: "#{user.first_name}'s #{category}",
+    #   user: user
+    # )
+    # p event_2
 
-    chatroom = Chatroom.create!(
-      event: event_2,
-      name: event_2.title
-    )
+    # chatroom = Chatroom.create!(
+    #   event: event_2,
+    #   name: event_2.title
+    # )
 
     Wishlist.create!(
       name: "Hello World",
       event: event_1,
       gifts: gifts.sample(6)
     )
-    Wishlist.create!(
-      name: "Hello World",
-      event: event_2,
-      gifts: gifts.sample(7)
-    )
+    # Wishlist.create!(
+    #   name: "Hello World",
+    #   event: event_2,
+    #   gifts: gifts.sample(7)
+    # )
   n = n + 4
 end
 
