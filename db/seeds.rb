@@ -112,7 +112,7 @@ n = 1
     )
 
     event_2 = Event.create!(
-      event_date: Faker::Date.forward(days: (n +3)),
+      event_date: Faker::Date.forward(days: (n +6)),
       category: category,
       title: "#{user.nickname} #{category}",
       user: user
