@@ -86,13 +86,12 @@ i = 1
 # create an hash of items that we want to show and use that array
 PRODUCTS = {
   Apple: ["Macbook", "Iphone", "Ipad", "Watch"],
-  Beats: ["Earphones", "Headphones"],
-  Microsoft: ["Surface Pro", "Surface Book"],
+  Beats: ["Earphones"],
   Sonos: ["Sub Mini"],
   Canon: ["Camera"],
   Amazon: ["Tablet"],
   Mac: ["Foundation"],
-  Bodyshop: ["Facecream", "Handcream", "Body Lotion", "Hand Sanatiser"]
+  Boots: ["Facecream", "Handcream", "Lotion", "Sanitizer"]
 }
 
 PRODUCTS.keys.each do |company|
