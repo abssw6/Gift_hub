@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-3">
       <div class="card text-center"><%= "#{@event.title} for #{@event.user.first_name.upcase}" %>
+        <p class="card-text"> When -<br> <%= @event.event_date.strftime('%A, %d-%m-%Y').upcase %></p>
         <div class="text-center">
         <button class="button text-center" type="button"><%= link_to "Back to Event", event_path(@event) %></button>
         </div>
@@ -56,9 +57,6 @@
         </div>
     </div>
             <% end %>
-        <div class="d-flex justify-content-around">
-        <button class="button" type="button"><%= link_to "Back to Event", event_path(@event) %></button>
-        </div>
     </div>
   </div>
 </div>
