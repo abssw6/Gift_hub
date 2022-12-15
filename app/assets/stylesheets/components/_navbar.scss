@@ -48,8 +48,13 @@ a.nav-link {
   li:last-child {
     border-radius: 4px;
     background-image: linear-gradient(#FFAE00 0, #FFC800 100%);
-    a {
-      color: white !important;
-    }
   }
+}
+
+a#nickname {
+  color: white;
+}
+
+a#logout {
+  color: black;
 }
