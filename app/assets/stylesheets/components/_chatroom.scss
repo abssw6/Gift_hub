@@ -1,7 +1,7 @@
 .chatroom {
   margin-top: 20px;
   border-radius: 10px;
-  background: #4F646F;
+  background-image: linear-gradient(-180deg, #646464, #454545);
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
@@ -9,8 +9,8 @@
   flex-grow: 1;
 
   p {
-    color: #CCDAD1;
-    font-size: 30px;
+    color: #E0F6EF;
+    font-size: 20px;
   }
 
   b, strong {
