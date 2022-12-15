@@ -23,7 +23,10 @@ CATEGORIES = ["Birthday", "Wedding", "Babyshower", "Graduation", "Breakup", "No 
 puts "Creating 10 users,creating 2 events per user, 1 wishlist with 1 gift, 30 gifts"
 
 puts "Creating 2 test users"
-User.create!(
+
+koji = []
+
+koji = User.create!(
   email: "koji@lewagon.com",
   password: "hello123",
   first_name: "Koji",
@@ -31,6 +34,23 @@ User.create!(
   nickname: "KJ"
 )
 
+main_event = Event.create!(
+  event_date: "Fri, 17 Dec 2022 00:00:00.000000000 UTC +00:00",
+  category: "Graduation",
+  title: "Le Wagon Grad Party",
+  user: koji
+)
+
+chatroom = Chatroom.create!(
+  event: main_event,
+  name: main_event.title
+)
+
+Wishlist.create!(
+  name: main_event.title,
+  event: main_event
+  # gifts: gifts.sample(5)
+)
 User.create!(
   email: "abs@lewagon.com",
   password: "hello123",
@@ -38,6 +58,23 @@ User.create!(
   last_name: "Elmi",
   nickname: "Abs"
 )
+
+User.create!(
+  email: "aziz@lewagon.com",
+  password: "hello123",
+  first_name: "Aziz",
+  last_name: "Miah",
+  nickname: "AM"
+)
+
+User.create!(
+  email: "Gianluca@lewagon.com",
+  password: "hello123",
+  first_name: "Gianluca",
+  last_name: "Galli",
+  nickname: "Mac"
+)
+
 
 puts "done"
 
@@ -53,7 +90,9 @@ PRODUCTS = {
   Microsoft: ["Surface Pro", "Surface Book"],
   Sonos: ["Sub Mini"],
   Canon: ["Camera"],
-  Amazon: ["Tablet"]
+  Amazon: ["Tablet"],
+  Mac: ["Foundation"],
+  Bodyshop: ["Facecream", "Handcream", "Body Lotion", "Hand Sanatiser"]
 }
 
 PRODUCTS.keys.each do |company|
@@ -100,7 +139,7 @@ n = 1
     event_1 = Event.create(
       event_date: Faker::Date.forward(days: (n +2)),
       category: category,
-      title: "#{user.nickname} #{category}",
+      title: "#{user.first_name}'s #{category}",
       user: user
     )
 
@@ -112,9 +151,9 @@ n = 1
     )
 
     event_2 = Event.create!(
-      event_date: Faker::Date.forward(days: (n +6)),
+      event_date: Faker::Date.forward(days: (n +4)),
       category: category,
-      title: "#{user.nickname} #{category}",
+      title: "#{user.first_name}'s #{category}",
       user: user
     )
     p event_2
@@ -127,12 +166,12 @@ n = 1
     Wishlist.create!(
       name: "Hello World",
       event: event_1,
-      gifts: gifts.sample(5)
+      gifts: gifts.sample(6)
     )
     Wishlist.create!(
       name: "Hello World",
       event: event_2,
-      gifts: gifts.sample(5)
+      gifts: gifts.sample(7)
     )
   n = n + 4
 end
