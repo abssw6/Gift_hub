@@ -45,7 +45,7 @@
                   <% end %>
               <% else %>
                 <div class="text-center">
-                  <div class="button text-center">
+                  <div class="button text-center d-flex justify-content-center align-items-center">
                   <%= link_to "Not Getting",
                     usercommit_path(Usercommit.where(user: current_user, gift: gift_wishlist.gift).first),
                     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
