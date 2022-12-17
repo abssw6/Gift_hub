@@ -35,7 +35,7 @@ koji = User.create!(
 )
 
 main_event = Event.create!(
-  event_date: "Fri, 17 Dec 2022 00:00:00.000000000 UTC +00:00",
+  event_date: "Sat, 17 Dec 2022 23:00:00.000000000 UTC +00:00",
   category: "Graduation",
   title: "Le Wagon Grad Party",
   user: koji
