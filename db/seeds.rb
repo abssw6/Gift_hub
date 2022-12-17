@@ -86,11 +86,12 @@ i = 1
 # create an hash of items that we want to show and use that array
 PRODUCTS = {
   Apple: ["Macbook", "Iphone", "Ipad", "Watch"],
-  Beats: ["Earphones"],
+  Bose: ["Earphones"],
   Sonos: ["Sub Mini"],
   Canon: ["Camera"],
-  Amazon: ["Tablet"],
+  Amazon: ["Fire 7"],
   Mac: ["Foundation"],
+  HM: ["Socks"],
   Boots: ["Facecream", "Handcream", "Lotion", "Sanitizer"]
 }
 
@@ -121,7 +122,7 @@ end
 
 n = 1
 
-10.times do
+6.times do
 
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
